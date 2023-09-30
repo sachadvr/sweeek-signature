@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		
+		<link href="./_app/immutable/assets/0.078c15f9.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.8ac78d23.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.5881665c.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.1cadffea.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.510a1292.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.36e1f57b.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.f84d37c5.js"><!-- HEAD_svelte-17q8jbs_START --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"><!-- HEAD_svelte-17q8jbs_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+
+
+<div style="font-family: Quicksand;">
+<h1 class="text-6xl p-4 font-bold mt-20">Votre signature personnalisée <span class="bg-black color-white px-2 text-white">sweeek.</span></h1>
+<div class="p-4 border border-black m-4 flex gap-5 flex-wrap"><div class="border border-black p-4 font-bold flex-1"><div class="p-4">Voici un exemple de mail:</div>
+  <div class="border p-4">Salut Sacha,
+<br><br>J&#39;espère que tu passes une bonne journée jusqu&#39;à présent ! J&#39;avais quelques idées en tête pour améliorer notre façon de travailler sur les projets et je voulais les partager avec toi.
+<br><br>Réunions Hebdomadaires : Je pense qu&#39;il serait super de mettre en place des réunions rapides chaque semaine pour discuter des progrès et des défis. Qu&#39;en penses-tu ?
+<br><br>Feedback Constant : J&#39;aime l&#39;idée d&#39;encourager un feedback régulier. Ça peut vraiment aider à résoudre les problèmes avant qu&#39;ils ne deviennent énormes.
+<br><br>Formation et Développement : On pourrait aussi organiser des sessions de formation informelles. Je suis sûr(e) qu&#39;il y a des trucs et astuces que chacun de nous pourrait partager.
+<br><br>Quand est-ce que tu es dispo pour se rencontrer cette semaine et en discuter de vive voix ? Je suis libre mercredi après-midi et jeudi matin. Bien sûr, si ces jours ne te conviennent pas, je suis flexible !
+<br><br>Merci d&#39;avance pour ton temps. J&#39;ai hâte d&#39;entendre tes pensées sur ces idées.
+<br><br>À bientôt !
+<br><br>Cordialement,
+  </div>
+<div class="signature" contenteditable="true"><div style="background-color: black; color: white; padding: 20px; width: 90%; font-family: 'Satoshi', sans-serif; margin: auto;"><table><tr><td style="padding: 0 1rem;"><img width="250" style="padding-right: 2rem;" src="https://alicegarden.atlassian.net/s/-3o5b4z/b/5/e932d65b444872da6155b2fc89562bb8/_/jira-logo-scaled.png" alt="Placeholder Logo" class="logo"></td>
+  <td style="padding: 0 1rem;"><div class="label" style="font-weight: 700;">Sacha Duvivier</div>
+
+      <div class="label">Développeur Fullstack Symfony</div>
+      <div class="label">sduvivier@walibuy.com</div>
+      <div class="label">+33781701638</div></td></tr></table></div></div></div>
+
+<form class="block p-4 flex-1 flex-shrink-0 w-full"><div class="bg-black text-white p-4 w-fit cursor-pointer font-bold"><label><input class="block p-4 border hidden border-black w-full max-w-lg" type="file" id="logo" accept="image/*">
+      [Image Personnalisée]
+    </label></div>
+
+  Prénom *
+  <input class="block p-4 border border-black w-full max-w-lg" type="text" id="firstName" placeholder="Prénom" required value="Sacha">
+  Nom *
+  <input class="block p-4 border border-black w-full max-w-lg" type="text" id="lastName" placeholder="Nom" required value="Duvivier">
+  Rôle *
+  <input class="block p-4 border border-black w-full max-w-lg" type="text" id="jobTitle" placeholder="Ton rôle" required value="Développeur Fullstack Symfony">
+
+  Email *
+  <input class="block p-4 border border-black w-full max-w-lg" type="email" id="email" placeholder="email@sweeek.fr" required value="sduvivier@walibuy.com">
+
+  <div><label for="phone">Phone:</label>
+  <input class="block p-4 border border-black w-full max-w-lg" type="tel" id="phone" placeholder="" value="+33781701638">
+  <button class="bg-black text-white p-4 mt-4 font-bold">Clique pour Copier</button></div></form></div>
+<style>.signature > div{
+    width: 100%!important;
+  }
+
+  @keyframes slidein {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideout {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+  .banner {
+    animation: slidein 1s ease-in-out;
+  }
+  .slideout {
+    animation: slideout 1s ease-in-out forwards;
+  }</style></div>
+
+
+			
+			<script>
+				{
+					__sveltekit_172rer4 = {
+						assets: "/sweeek-signature",
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.8ac78d23.js"),
+						import("./_app/immutable/entry/app.510a1292.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
