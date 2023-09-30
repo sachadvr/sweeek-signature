@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/sweeek-signature/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		
+		<link rel="modulepreload" href="/sweeek-signature/_app/immutable/entry/start.cbbb951a.js">
+		<link rel="modulepreload" href="/sweeek-signature/_app/immutable/chunks/index.5881665c.js">
+		<link rel="modulepreload" href="/sweeek-signature/_app/immutable/chunks/singletons.7b270c79.js">
+		<link rel="modulepreload" href="/sweeek-signature/_app/immutable/entry/app.ee8b7001.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_16zv9yv = {
+						assets: "/sweeek-signature",
+						base: "/sweeek-signature",
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/sweeek-signature/_app/immutable/entry/start.cbbb951a.js"),
+						import("/sweeek-signature/_app/immutable/entry/app.ee8b7001.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
