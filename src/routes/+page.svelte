@@ -8,6 +8,9 @@
   let currentLanguage = 'fr';
   let jobTitle = translations[currentLanguage].currentJob;
   let email = 'sduvivier@walibuy.com';
+  // import Fa from 'svelte-fa/src/fa.svelte'
+  // import { faInstagram, faSquareXTwitter,faLinkedin } from '@fortawesome/free-brands-svg-icons'
+
   let phone = '+33781701638';
   let logoUrl = '';
   let banner = '';
@@ -80,14 +83,15 @@ banner = translations[currentLanguage].saveMessage;
     {@html translations[currentLanguage].exampleMessage.replace('{firstName}', firstName).replace(/\n/g, "<br/>")}
   </div>
 <div class="signature">
-  <div style="background-color: black;
+  <div style="">
+  <table style="background-color: black;
   color: white;
   padding: 20px;
   width: 100%;
-  font-family: 'Satoshi', sans-serif;
-  margin-left: 1rem; margin-right: 1rem;">
-  <table>
-      <tr>
+  min-width: 100%;
+  font-family: 'Trebuchet MS', sans-serif;
+  ">
+      <tr style="display:block;">
       <td style="padding: 0 1rem;">
   {#if logoUrl}
     <img width="250" style="padding-right: 2rem;" src={logoUrl} alt="Logo" class="logo">
@@ -141,6 +145,8 @@ banner = translations[currentLanguage].saveMessage;
 <style>
   .signature > div{
     margin: 0!important;
+    padding: 20px;
+    background: black;
   }
 
   @keyframes slidein {

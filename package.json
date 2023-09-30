@@ -24,8 +24,12 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fortawesome/free-brands-svg-icons": "^6.4.2",
+		"@fortawesome/free-solid-svg-icons": "^6.4.2",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"d3": "^7.8.5",
+		"html-minifier-terser": "^7.2.0",
+		"svelte-fa": "^3.0.4",
 		"svelte-flag-icons": "^0.7.2"
 	}
 }
