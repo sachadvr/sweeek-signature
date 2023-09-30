@@ -1,13 +1,24 @@
 <script>
   import { onMount } from "svelte";
+  import { Fr, Es, Gb } from 'svelte-flag-icons';
 
+  import {translations} from '../lib/translations'
   let firstName = 'Sacha';
   let lastName = 'Duvivier';
-  let jobTitle = 'Développeur Fullstack Symfony';
+  let currentLanguage = 'fr';
+  let jobTitle = translations[currentLanguage].currentJob;
   let email = 'sduvivier@walibuy.com';
   let phone = '+33781701638';
   let logoUrl = '';
   let banner = '';
+
+
+function changeLanguage(language) {
+  currentLanguage = language;
+  jobTitle = translations[currentLanguage].currentJob;
+}
+
+
 
   let logoFile = null;
 
@@ -31,7 +42,7 @@ document.addEventListener("copy", listener);
 document.execCommand("copy");
 document.removeEventListener("copy", listener);
 
-banner = "Votre signature vient d'être copiée dans votre Presse papier!";
+banner = translations[currentLanguage].saveMessage;
 };
   let logoInput;
 
@@ -57,20 +68,18 @@ banner = "Votre signature vient d'être copiée dans votre Presse papier!";
 {#if banner}
 <div class="banner bg-green-300 text-black p-4 font-bold text-5xl absolute w-full top-0 transition-all animate">{banner}</div>
 {/if}
-<h1 class="text-6xl p-4 font-bold mt-20">Votre signature personnalisée <span class="bg-black color-white px-2 text-white">sweeek.</span></h1>
+<div class="mt-10 flex gap-3 mx-6">
+  <Fr on:click={() => {changeLanguage('fr')}} />
+  <Gb on:click={() => {changeLanguage('en')}} />
+  <Es on:click={() => {changeLanguage('es')}}  />
+</div>
+<h1 class="mt-8 text-6xl p-4 font-bold" style="line-height:80px;">{@html translations[currentLanguage].signature.replace('{brand}', '<div class="bg-black color-white w-fit inline px-2 text-white">sweeek.</div>')}</h1>
 <div class="p-4 border border-black m-4 flex gap-5 flex-wrap">
-  <div class="border border-black p-4 font-bold flex-1"><div class="p-4">Voici un exemple de mail:</div>
-  <div class=" border p-4">Salut Sacha,
-<br/><br/>J'espère que tu passes une bonne journée jusqu'à présent ! J'avais quelques idées en tête pour améliorer notre façon de travailler sur les projets et je voulais les partager avec toi.
-<br/><br/>Réunions Hebdomadaires : Je pense qu'il serait super de mettre en place des réunions rapides chaque semaine pour discuter des progrès et des défis. Qu'en penses-tu ?
-<br/><br/>Feedback Constant : J'aime l'idée d'encourager un feedback régulier. Ça peut vraiment aider à résoudre les problèmes avant qu'ils ne deviennent énormes.
-<br/><br/>Formation et Développement : On pourrait aussi organiser des sessions de formation informelles. Je suis sûr(e) qu'il y a des trucs et astuces que chacun de nous pourrait partager.
-<br/><br/>Quand est-ce que tu es dispo pour se rencontrer cette semaine et en discuter de vive voix ? Je suis libre mercredi après-midi et jeudi matin. Bien sûr, si ces jours ne te conviennent pas, je suis flexible !
-<br/><br/>Merci d'avance pour ton temps. J'ai hâte d'entendre tes pensées sur ces idées.
-<br/><br/>À bientôt !
-<br/><br/>Cordialement,
+  <div class="border border-black p-4 font-bold flex-1"><div class="p-4">{translations[currentLanguage].examplePreviewEmail}</div>
+  <div class=" border p-4">
+    {@html translations[currentLanguage].exampleMessage.replace('{firstName}', firstName).replace(/\n/g, "<br/>")}
   </div>
-<div class="signature" contenteditable="true">
+<div class="signature">
   <div style="background-color: black;
   color: white;
   padding: 20px;
@@ -101,33 +110,37 @@ banner = "Votre signature vient d'être copiée dans votre Presse papier!";
 </div>
 
 <form class="block p-4 flex-1 flex-shrink-0 w-full">
-  <div class="bg-black text-white p-4 w-fit cursor-pointer font-bold">
+  <div class="border bg-green-100 p-4 mb-6 w-fit cursor-pointer font-bold">
 
     <label >
       <input class="block p-4 border hidden border-black w-full max-w-lg" type="file" id="logo" accept="image/*" bind:this={logoInput}>
-      [Image Personnalisée]
+      {translations[currentLanguage].uploadImage}
     </label>
   </div>
 
-  Prénom *
-  <input class="block p-4 border border-black w-full max-w-lg" type="text" id="firstName" placeholder="Prénom" bind:value={firstName} required>
-  Nom *
-  <input class="block p-4 border border-black w-full max-w-lg" type="text" id="lastName" placeholder="Nom" bind:value={lastName} required>
-  Rôle *
-  <input class="block p-4 border border-black w-full max-w-lg" type="text" id="jobTitle" placeholder="Ton rôle" bind:value={jobTitle} required>
+  {translations[currentLanguage].firstName} *
+  <input class="block p-4 border border-black w-full max-w-lg" type="text" id="firstName" placeholder={translations[currentLanguage].firstName} bind:value={firstName} required>
+  {translations[currentLanguage].lastName} *
+  <input class="block p-4 border border-black w-full max-w-lg" type="text" id="lastName" placeholder={translations[currentLanguage].lastName} bind:value={lastName} required>
+  {translations[currentLanguage].jobTitle} *
+  <input class="block p-4 border border-black w-full max-w-lg" type="text" id="jobTitle" placeholder={translations[currentLanguage].jobTitle} bind:value={jobTitle} required>
 
-  Email *
-  <input class="block p-4 border border-black w-full max-w-lg" type="email" id="email" placeholder="email@sweeek.fr" bind:value={email} required>
+  {translations[currentLanguage].email} *
+  <input class="block p-4 border border-black w-full max-w-lg" type="email" id="email" placeholder={translations[currentLanguage].email} bind:value={email} required>
 
   <div>
-  <label for="phone">Phone:</label>
-  <input class="block p-4 border border-black w-full max-w-lg" type="tel" id="phone" placeholder="" bind:value={phone}>
-  <button class="bg-black text-white p-4 mt-4 font-bold" on:click={clickToSave}>Clique pour Copier</button>
+  <label for="phone">{translations[currentLanguage].phone} *</label>
+  <input class="block p-4 border border-black w-full max-w-lg" type="tel" id="phone" placeholder={translations[currentLanguage].phone} bind:value={phone}>
+  <button class="bg-black text-white p-4 mt-4 font-bold" on:click={clickToSave}>{translations[currentLanguage].copyButton}</button>
+
+  <p class="mt-6">
+    {@html translations[currentLanguage].signatureInstructions.replace(/\n/g, "<br/>")}
+  </p>
 </form>
 </div>
 <style>
   .signature > div{
-    width: 100%!important;
+    margin: 0!important;
   }
 
   @keyframes slidein {

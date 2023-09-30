@@ -25,6 +25,7 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-static": "^2.0.3",
-		"d3": "^7.8.5"
+		"d3": "^7.8.5",
+		"svelte-flag-icons": "^0.7.2"
 	}
 }
