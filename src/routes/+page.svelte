@@ -74,8 +74,9 @@ banner = "Votre signature vient d'être copiée dans votre Presse papier!";
   <div style="background-color: black;
   color: white;
   padding: 20px;
-  width: 90%;
-  font-family: 'Satoshi', sans-serif; margin: auto;">
+  width: 100%;
+  font-family: 'Satoshi', sans-serif;
+  margin-left: 1rem; margin-right: 1rem;">
   <table>
       <tr>
       <td style="padding: 0 1rem;">
