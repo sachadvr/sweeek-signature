@@ -42,7 +42,7 @@ const translations = {
       phone: 'Téléphone',
       uploadImage: 'Télécharger une image personnalisée',
       copyButton: 'Clique pour Copier',
-      currentJob: 'Développeur Symfony Fullstack',
+      currentJob: 'Développeur Fullstack',
       saveMessage: 'Votre signature vient d\'être copiée dans votre presse-papiers !',
       examplePreviewEmail: 'Voici un exemple d\'email :',
       signatureInstructions: `Pour ajouter ou modifier votre signature sur Gmail, suivez ces étapes simples :

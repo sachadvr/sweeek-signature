@@ -11,7 +11,7 @@
   // import Fa from 'svelte-fa/src/fa.svelte'
   // import { faInstagram, faSquareXTwitter,faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
-  let phone = '+33781701638';
+  let phone = '+33123456789';
   let logoUrl = '';
   let banner = '';
 
@@ -69,16 +69,16 @@ banner = translations[currentLanguage].saveMessage;
 
 <div style="font-family: Quicksand;">
 {#if banner}
-<div class="banner bg-green-300 text-black p-4 font-bold text-5xl absolute w-full top-0 transition-all animate">{banner}</div>
+<div class="banner bg-green-300 text-black p-4 font-bold text-5xl max-md:text-3xl absolute w-full top-0 transition-all animate">{banner}</div>
 {/if}
 <div class="mt-10 flex gap-3 mx-6">
   <Fr on:click={() => {changeLanguage('fr')}} />
   <Gb on:click={() => {changeLanguage('en')}} />
   <Es on:click={() => {changeLanguage('es')}}  />
 </div>
-<h1 class="mt-8 text-6xl p-4 font-bold" style="line-height:80px;">{@html translations[currentLanguage].signature.replace('{brand}', '<div class="bg-black color-white w-fit inline px-2 text-white">sweeek.</div>')}</h1>
+<h1 class="mt-8 text-6xl max-md:text-5xl p-4 font-bold" style="line-height:80px;">{@html translations[currentLanguage].signature.replace('{brand}', '<div class="bg-black color-white w-fit inline px-2 text-white">sweeek.</div>')}</h1>
 <div class="p-4 border border-black m-4 flex gap-5 flex-wrap">
-  <div class="border border-black p-4 font-bold flex-1"><div class="p-4">{translations[currentLanguage].examplePreviewEmail}</div>
+  <div class="border border-black p-4 font-bold w-full flex-1"><div class="p-4">{translations[currentLanguage].examplePreviewEmail}</div>
   <div class=" border p-4">
     {@html translations[currentLanguage].exampleMessage.replace('{firstName}', firstName).replace(/\n/g, "<br/>")}
   </div>
@@ -117,7 +117,7 @@ banner = translations[currentLanguage].saveMessage;
   <div class="border bg-green-100 p-4 mb-6 w-fit cursor-pointer font-bold">
 
     <label >
-      <input class="block p-4 border hidden border-black w-full max-w-lg" type="file" id="logo" accept="image/*" bind:this={logoInput}>
+      <input class="p-4 border hidden border-black w-full max-w-lg" type="file" id="logo" accept="image/*" bind:this={logoInput}>
       {translations[currentLanguage].uploadImage}
     </label>
   </div>
@@ -147,6 +147,7 @@ banner = translations[currentLanguage].saveMessage;
     margin: 0!important;
     padding: 20px;
     background: black;
+    overflow: hidden;
   }
 
   @keyframes slidein {
