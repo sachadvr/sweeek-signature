@@ -1,9 +1,8 @@
 <script>
   import { onMount } from "svelte";
-  import { Fr, Es, Gb, Nl, De, It } from 'svelte-flag-icons';
+  import { Fr, Es, Gb, Nl, De, It, Be, Pt } from 'svelte-flag-icons';
   import Fa from 'svelte-fa/src/fa.svelte'
-  import { faCheck, faEnvelope } from '@fortawesome/free-solid-svg-icons'
-  import { faFacebook, faFacebookSquare, faGoogle, faInstagram, faPinterestSquare, faXTwitter } from '@fortawesome/free-brands-svg-icons'
+  import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
   import {translations} from '../lib/translations'
   let firstName = 'Sacha';
@@ -14,6 +13,8 @@
 
   let phone = '+33123456789';
   let logoUrl = '';
+
+  let showBelgiumFlags = false;
   let banner = '';
 
 
@@ -76,11 +77,23 @@ banner = translations[currentLanguage].saveMessage;
 {/if}
 <div class="mt-10 flex gap-3 mx-6">
   <Fr on:click={() => {changeLanguage('fr')}} />
-  <Gb on:click={() => {changeLanguage('en')}} />
   <Es on:click={() => {changeLanguage('es')}}  />
+  <Gb on:click={() => {changeLanguage('en')}} />
+  <It on:click={() => {changeLanguage('it')}}  />
+  <Pt on:click={() => {changeLanguage('pt')}} />
   <De on:click={() => {changeLanguage('de')}}  />
   <Nl on:click={() => {changeLanguage('nl')}}  />
-  <It on:click={() => {changeLanguage('it')}}  />
+    <div class="relative">
+      <Be on:click={() => {showBelgiumFlags = !showBelgiumFlags}}  />
+        {#if showBelgiumFlags}
+        <div class="absolute top-0 left-0 bg-white border translate-y-[50%] border-black p-2 flex gap-2 mt-2">
+            <Fr on:click={() => {changeLanguage('frbe'); showBelgiumFlags = !showBelgiumFlags}}  />
+            <Nl on:click={() => {changeLanguage('nlbe'); showBelgiumFlags = !showBelgiumFlags}}  />
+        </div>
+        {/if}
+      </div>
+
+
 
 </div>
 <h1 class="mt-8 text-6xl max-md:text-5xl p-4 font-bold" style="line-height:80px;">{@html translations[currentLanguage].signature.replace('{brand}', '<div class="bg-black color-white w-fit inline px-2 text-white">sweeek.</div>')}</h1>
@@ -118,7 +131,7 @@ banner = translations[currentLanguage].saveMessage;
 </tr>
   <tr>
   <td style="background:none; border:solid 1px white; border-width:1px 0 0 0; height:1px; width:100%; margin:0px 0px 0px 0px;">
-    <a style="text-decoration:none;color:white;" href={translations[currentLanguage].linkSweeek}>{translations[currentLanguage].linkSweeek.substring(9)}</a> -
+    <a style="text-decoration:none;color:white;" href={translations[currentLanguage].linkSweeek}>{translations[currentLanguage].linkSweeek.substring(translations[currentLanguage].linkSweeek.indexOf('.') + 1)}</a> -
     <a href="https://instagram.com/sweeekofficial/">
     <img width="15" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABTlJREFUaEPdmlnMXVMUx39/w4P5qYbSmodQoY2YUqTEi0pIDC3a6iAaWuMLFSEkhieEmhraKjWVhAQvao7Wg6ihJWmrQmoIL8Z6MCz53+zz5eTk3nvOPd+5X+5nPfTk69l77fVfe+21/nudK5JExK7ANcAFwGHATtm7AXn+CWwEngful/S77ZL/iQgb/Bpw8IAYW2bGZuAsSZuUPP/xKDI+A7cJmGgANwF3lEEe0PeLDMDeP2ZADSwza50BbBvAA1tmePZ+mwFE1dGDOG44AAz8O+Br4AfgnxzA34C/C4B3AHbL/d/2wN7A/sDYLCP26qQ6AD5zHgZekWTDhy0RYSBnpzo0oReFvQD4C7gWeETSv70sUnVsRGwHXAHcC+xYZV5VADbehWN1XmlEjAcOAsYAuwMOi0xszB7pj1+APGiH26/AT8AWSd8U9J4JvFoFRFUACyQ9lC0SETOBG4CjqnipwpgNwN2SnsqtsQBYXDa3CgDH/LFZ2ETEA8DCMsU13y+WdJXnpnD6BOh6JqoAuEzS40mpPb+ipnHtpr2bvHwIcDOwMzBD0sq03jzgsW7rlQFwqhybZZuIWN9g2PwMjJfklGuPZ5Rmg6SW1yNiH+Dbbim2DMBWSeOSMh9Y5/wq8gewJtUJj98XODl5OJu/UdLhuZifBjyb/h4naWta10/PbytlANZK8sL2xhTgzRLrtwC3Ai9KMn8fkojw/eJ84DbgQKsEpklaFRHOYM46k9OEKZLeTuvaESfVBfCypHOToouAp7sAsPfmFg0vjo8Ix/ky4MIEwtx+r5SGs+EXS3omrfsScE5dAPakveYduBRY3kGRjfeiLV4VEa4H3rmM5ZrxrsllMl+kPMcg2slsSU8kXS8A59UF8Jyk6UnRXKCVjQrisJmQeT4ijk8ePrIwzglgjqQPkz7vhPP/AW10zpO0NI0zUJ+PtlJ2BlZKmpEUXQ482kbLzKwARcQJwFtd6Lmp+2k5ELOAlqcLMl/SkrSui9sldQGskOTQcVhcCTxYUORsM8beT2HzKVD0fHHtocKYzoPphHcjL0OVPyIM0EBr7cBSSS4mBuAKaRaal9WSzFv8/hTAhamKTJb0fppnfnVGYdLVklzxrddh6/CtBWCJpPlJ0XXAPQUtyyS1lHcA2GndhZJauxkRzkizCwOvl2RG6vcOW4dvXwAslzQnLVSJfCUrykKkMQC9hJCL0HtV4scFKxdCbwCn9yuEejnE5v+l7BHwQZ/omjASh7hKGp0l6ckURscB77TJKpmDnbVOlfRRGu/Y9xkoSmNptEoh+yoVMud4HzqDsFFFHm/Pu5Blxu8CfG5G2gZAY4WsKpVww3V6jko4nE4EJiXjbPQHBSrhOS2a0kYaoxK9kDkbZA+3dqKTRIQ9b07VyXhPbYzM9UqnfV+4BVjVhk672rp1f3uHsMljboxO173QeBfWAq1LCbBfYqdVvzk0dqHp55WyU5Stl3R0SgjDvlJaT/5Sb2baSpl9lEYv9bZz1LdVDGKIfKWtNT9f1GCHwhebu7J2SlrDvacWI+0mZReabK5bi1MlvZ5XFhE+nP6utmfN1uKPwJdZByLTHRGNtxat2yBMqR/uc3PXFyfT9kabu3nH+257n79qSvq+bIurvE8NrKn9bq8XbXGKNQAXLz/rfOBwmvQHDj9bn3x7lapnoFe9Izb+f/GRb9R/ZnU+v3PE9rzZhW7MfmqwDnCPfjSJf/gxKfuxx6GpO+znaBAb78K6eSh1pYuGm1duuB4xgF/v3a7/Iv3cxp+ifL/mP8KQ4TIEcTSgAAAAAElFTkSuQmCC" alt="Instagram" style="display: inline-block; width:15px;height:15px;" />  
     </a>

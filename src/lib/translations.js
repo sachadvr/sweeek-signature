@@ -227,7 +227,59 @@ const translations = {
       Cordiali saluti,`,
       linkFacebook: "https://www.facebook.com/sweeek.it",
       linkSweeek: "https://www.sweeek.it"
+    },
+    pt: {
+      signature: 'Sua assinatura personalizada {brand}',
+      firstName: 'Sacha',
+      lastName: 'Duvivier',
+      jobTitle: 'Cargo',
+      email: 'Email',
+      phone: 'Telefone',
+      uploadImage: 'Carregar uma imagem personalizada',
+      gmail: 'Acesso ao Gmail',
+      copyButton: 'Clique para Copiar',
+      currentJob: 'Desenvolvedor Fullstack Symfony',
+      saveMessage: 'Sua assinatura foi copiada para a área de transferência!',
+      examplePreviewEmail: 'Veja aqui como ficará:',
+      currentEmail: 'sduvivier@sweek.pt',
+      signatureInstructions: `Para adicionar ou modificar sua assinatura no Gmail, siga estes passos simples:
+    
+    1. Clique no ícone de engrenagem no canto superior direito da sua caixa de entrada do Gmail. {gmail}
+    2. Selecione "Ver todas as configurações" e vá para a guia "Geral".
+    3. Role até a seção "Assinatura", onde você pode criar ou editar sua assinatura personalizada. Cole o texto que você tem na área de transferência aqui.
+    4. Salve as alterações na parte inferior da página para aplicar sua nova assinatura.`,
+      exampleMessage: `Olá {firstName},
+    
+      Espero que você esteja tendo um bom dia até agora! Eu tive algumas ideias para melhorar nossa forma de trabalhar em projetos e gostaria de compartilhá-las com você.
+    
+      Reuniões Semanais: Acho que seria ótimo estabelecer reuniões rápidas todas as semanas para discutir o progresso e os desafios. O que você acha?
+      Feedback Regular: Gosto da ideia de incentivar feedback regular. Isso realmente pode ajudar a resolver problemas antes que eles se tornem grandes.
+      Treinamento e Desenvolvimento: Também poderíamos organizar sessões de treinamento informais. Tenho certeza de que cada um de nós tem dicas e truques para compartilhar.
+    
+      Quando você está disponível para se encontrar esta semana e discutir essas ideias pessoalmente? Estou livre na quarta-feira à tarde e na quinta-feira de manhã. Claro, se esses dias não funcionarem para você, sou flexível!
+    
+      Agradeço antecipadamente pelo seu tempo. Estou ansioso para ouvir suas opiniões sobre essas ideias.
+    
+      Até breve!
+    
+      Atenciosamente,`,
+      linkFacebook: 'https://www.facebook.com/sweek.pt',
+      linkSweeek: 'https://www.sweek.pt',
     }
+    
   };
+
+  translations.frbe = {...translations.fr, ...{
+    linkSweeek: "https://fr.sweeek.be",
+    currentEmail: "sduvivier@sweek.be",
+    linkFacebook: "https://www.facebook.com/sweeek.be",
+  }};
+
+  translations.nlbe = {...translations.nl, ...{
+    linkSweeek: "https://nl.sweeek.be",
+    currentEmail: "sduvivier@sweek.be",
+    linkFacebook: "https://www.facebook.com/sweeek.be",
+  }};
+
 
   export { translations };
