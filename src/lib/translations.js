@@ -189,6 +189,44 @@ const translations = {
       Met vriendelijke groet,`,
       linkFacebook: "https://www.facebook.com/sweeek.nl",
       linkSweeek: "https://www.sweeek.nl"
+    },
+    it: {
+      signature: "La tua firma personalizzata {brand}",
+      firstName: "Nome",
+      lastName: "Cognome",
+      jobTitle: "Posizione",
+      email: "Email",
+      phone: "Telefono",
+      uploadImage: "Carica un'immagine personalizzata",
+      copyButton: "Clicca per Copiare",
+      currentJob: "Sviluppatore Fullstack",
+      gmail: "Accedi a Gmail",
+      saveMessage: "La tua firma è stata copiata negli appunti!",
+      examplePreviewEmail: "Ecco un esempio di email:",
+      currentEmail: "sduvivier@sweeek.it",
+      signatureInstructions: `Per aggiungere o modificare la tua firma su Gmail, segui questi semplici passaggi:
+      
+      1. Clicca sull'icona dell'ingranaggio in alto a destra nella tua casella di posta Gmail. {gmail}
+      2. Seleziona "Mostra tutte le impostazioni" e vai alla scheda "Generali".
+      3. Scorri verso il basso fino alla sezione "Firma" dove puoi creare o modificare la tua firma personalizzata. Incolla il testo che hai negli appunti in questo punto.
+      4. Salva le modifiche in fondo alla pagina per applicare la tua nuova firma.`,
+      exampleMessage: `Ciao {firstName},
+      
+      Spero che tu stia passando una buona giornata finora! Avevo alcune idee per migliorare il nostro modo di lavorare sui progetti e volevo condividerle con te.
+      
+      Riunioni Settimanali: Penso che sarebbe fantastico organizzare incontri veloci ogni settimana per discutere dei progressi e delle sfide. Cosa ne pensi?
+      Feedback Costante: Mi piace l'idea di incoraggiare un feedback regolare. Può davvero aiutare a risolvere i problemi prima che diventino enormi.
+      Formazione e Sviluppo: Potremmo anche organizzare sessioni di formazione informali. Sono sicuro(a) che ognuno di noi ha trucchi e suggerimenti da condividere.
+      
+      Quando sei disponibile per incontrarci questa settimana e discuterne di persona? Sono libero mercoledì pomeriggio e giovedì mattina. Naturalmente, se questi giorni non vanno bene per te, sono flessibile!
+      
+      Grazie in anticipo per il tuo tempo. Non vedo l'ora di sentire i tuoi pensieri su queste idee.
+      
+      A presto!
+      
+      Cordiali saluti,`,
+      linkFacebook: "https://www.facebook.com/sweeek.it",
+      linkSweeek: "https://www.sweeek.it"
     }
   };
 

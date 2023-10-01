@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { Fr, Es, Gb, Nl, De } from 'svelte-flag-icons';
+  import { Fr, Es, Gb, Nl, De, It } from 'svelte-flag-icons';
   import Fa from 'svelte-fa/src/fa.svelte'
   import { faCheck, faEnvelope } from '@fortawesome/free-solid-svg-icons'
   import { faFacebook, faFacebookSquare, faGoogle, faInstagram, faPinterestSquare, faXTwitter } from '@fortawesome/free-brands-svg-icons'
@@ -80,6 +80,7 @@ banner = translations[currentLanguage].saveMessage;
   <Es on:click={() => {changeLanguage('es')}}  />
   <De on:click={() => {changeLanguage('de')}}  />
   <Nl on:click={() => {changeLanguage('nl')}}  />
+  <It on:click={() => {changeLanguage('it')}}  />
 
 </div>
 <h1 class="mt-8 text-6xl max-md:text-5xl p-4 font-bold" style="line-height:80px;">{@html translations[currentLanguage].signature.replace('{brand}', '<div class="bg-black color-white w-fit inline px-2 text-white">sweeek.</div>')}</h1>
