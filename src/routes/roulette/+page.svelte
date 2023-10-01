@@ -132,12 +132,11 @@ import { onMount, beforeUpdate, afterUpdate } from "svelte";
   afterUpdate(svgRender);
   async function FetchData() {
     axios.defaults.withCredentials = true;
-    const response = await fetch('https://alicegarden.atlassian.net/rest/api/2/search?jql=status%20IN%20%28%22Demande%20en%20cours%20de%20traitement%22%2C%20%22En%20cours%20de%20relecture%22%2C%20%22En%20pr%C3%A9-production%22%29'
+    const response = await fetch('http://localhost:3000'
     , {
       headers: {
         "Content-Type": "application/json",
         "Cache-Control": "no-cache",
-        "withCredentials": "true"
       },
     });
   const json = await response.json();
