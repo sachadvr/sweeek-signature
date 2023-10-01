@@ -7,7 +7,7 @@
   let lastName = 'Duvivier';
   let currentLanguage = 'fr';
   let jobTitle = translations[currentLanguage].currentJob;
-  let email = 'sduvivier@walibuy.com';
+  let email = 'sduvivier@sweeek.fr';
   // import Fa from 'svelte-fa/src/fa.svelte'
   // import { faInstagram, faSquareXTwitter,faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
