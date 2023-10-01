@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		
+		<link href="./_app/immutable/assets/0.97af8cc2.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.65dfd38a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.b6f89375.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.f7de954e.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.6ee44073.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.f47ebc15.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.37594e5a.js"><!-- HEAD_svelte-17q8jbs_START --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"><!-- HEAD_svelte-17q8jbs_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+
+
+<div class="flex items-center justify-center h-[100vh] w-full flex-col relative"><div style="font-family: &quot;Source Code Pro&quot;,&quot;monaco&quot;,&quot;PT Mono&quot;,&quot;Courier&quot;,monospace; font-size: 40px;"><span class="animate-spin"><div>_</div></span></div>
+    <img class="absolute bottom-4 left-4 w-40" alt="" src="https://alicegarden.atlassian.net/s/-3o5b4z/b/5/e932d65b444872da6155b2fc89562bb8/_/jira-logo-scaled.png"></div>
+
+    <div class="w-full h-[100vh] bg-white relative flex items-center justify-center" id="scrollToRoulette"><button class="absolute top-2 left-2 rounded-2xl text-white border-2 border-white p-2 uppercase font-bold ">Recommencer</button>
+
+          <div class="wheel-container"><svg class="pointer" width="50" height="50" viewBox="0 0 255 254" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M118.5 1.981C80.351 9.662 54.457 31.12 39.438 67.5C28.45 94.114 14.73 144.387 11.191 171C10.642 175.125 8.826 186.375 7.155 196C3.366 217.818 1 235.791 1 242.754C1 247.063 1.465 248.556 3.414 250.505C4.742 251.832 6.879 253.178 8.164 253.494C9.449 253.81 21.75 252.286 35.5 250.105C49.25 247.925 66.575 245.198 74 244.045C118.943 237.067 150.154 229.118 183 216.287C197.737 210.53 207.318 205.258 216.573 197.812C249.727 171.142 263.702 117.822 248.608 75.59C245.075 65.706 237.393 51 235.763 51C235.278 51 235.143 50.578 235.462 50.061C235.781 49.545 235.469 48.758 234.769 48.311C234.069 47.865 232.85 46.246 232.06 44.713C229.183 39.135 215.78 25.98 206.966 20.085C192.396 10.339 178.49 4.498 162.75 1.512C151.733 -0.577997 130.067 -0.347998 118.5 1.981Z"></path></svg>
+            <div style="rotate: 0deg" class="wheel"></div>
+            <button class="spin-button" style="color: white"></button></div>
+
+          <div class="winner-popup"><div class="popup-content flex items-center justify-center flex-col"><div class="flex flex-col gap-3"><div class="font-bold inline-flex bg-black px-48 py-2 text-white" style="font-size:100px;">Daily</div>
+              <button class="bg-white text-black text-2xl" style="border: 1px solid black">Commencer le daily?</button></div></div></div>
+          
+
+          <style>.wheel-container {
+              position: relative;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100%;
+              width: 100%;
+              overflow: hidden;
+            }
+
+            .wheel {
+              -webkit-clip-path: circle(45%);
+                      clip-path: circle(45%);
+              transition: 2s ease-in-out;
+            }
+
+            .spin-button {
+              position: absolute;
+              border-radius: 50%;
+              translate: -50% -50%;
+              aspect-ratio: 1/1;
+              top: 50%;
+              left: 50%;
+              background-color: black;
+              color: white;
+              border: none;
+              cursor: pointer;
+            }
+
+
+          .winner-popup {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+          }
+
+          .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+          }
+
+          h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+          }
+
+          p {
+            font-size: 18px;
+            margin-bottom: 20px;
+          }
+
+          button {
+            /* background-color: #007bff; Blue button color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+
+          .pointer {
+              position: absolute;
+              left: 50%;
+              translate: -50% -220px;
+              rotate: 315deg;
+              z-index: 2;
+            }
+            path {
+            stroke: #646464;
+            stroke-width: 1px;
+            stroke-dasharray: 2,2;
+            stroke-linejoin: round;
+          }</style></div>
+
+
+			
+			<script>
+				{
+					__sveltekit_1jworf8 = {
+						assets: "/sweeek-signature",
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.65dfd38a.js"),
+						import("./_app/immutable/entry/app.6ee44073.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
