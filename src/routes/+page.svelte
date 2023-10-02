@@ -171,7 +171,6 @@
           .replace(/\n/g, "<br/>")}
       </div>
       <div class="signature">
-        <div style="">
           <table
           cellspacing="0"
             style="background-color: white;
@@ -332,7 +331,6 @@
             </tr>
             {/if}
           </table>
-        </div>
       </div>
     </div>
 
@@ -349,13 +347,9 @@
     />
   </div>
   <style>
-    .signature > div {
-      margin: 0 !important;
+    .signature {
       padding: 20px;
-      background: white;
-      overflow: hidden;
     }
-
     @keyframes slidein {
       0% {
         transform: translateY(-100%);
