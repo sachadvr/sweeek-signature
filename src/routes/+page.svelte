@@ -175,7 +175,6 @@
           cellspacing="0"
             style="background-color: white;
   color: black;
-  padding: 20px;
   width: 100%;
   min-width: 100%;
   font-family: 'Trebuchet MS', sans-serif;
@@ -240,7 +239,7 @@
                     </tr>
                     </table>
               <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px;">
-                <table style="font-size: .7em; font-weight: 100; min-width: 130px; text-align: center;">
+                <table style="font-size: .7em; font-weight: 100; min-width: 130px; text-align: center; margin: auto;">
                 <tr><td><a
                   style="text-decoration:none;color:black;"
                   href="#"
@@ -353,9 +352,10 @@
     />
   </div>
   <style>
-    .signature table {
+    .signature > table {
       display:block;
       overflow: scroll;
+      padding: 20px;
     }
     table {
       min-width: 0!important;
