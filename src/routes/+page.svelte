@@ -169,7 +169,7 @@
         {@html translations[currentLanguage].exampleMessage
           .replace("{firstName}", firstName)
           .replace(/\n/g, "<br/>")}
-      </div>
+      </div><div>
       <div class="signature">
           <table
           cellspacing="0"
@@ -205,7 +205,7 @@
               <td style="padding: 0 10px 0 0; line-height: 16px;">
                 <table class="label" style="text-decoration: none; color: black; font-size: .7em; min-width: 150px;">
                   <tr>
-                    <td>
+                    <td width="16" height="16" style="width:16px;height:16px;">
                       <img width="16" height="16" style="width:16px;height:16px;" src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/mail.png" alt="Mail" />
                     </td>
                     <td>
@@ -216,15 +216,13 @@
                 >
                     </td>
                   </tr>
-                </table>
-                <table>
                   <tr style="line-height: 16px;">
-                    <td>
+                    <td width="16" height="16" style="width:16px;height:16px;">
                       <img width="16" height="16" style="width:16px;height:16px;" src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/website.png" alt="Website" />
                     </td>
                     <td style="padding-left: 3px;">
                       <a
-                  style="text-decoration:none;color:black;font-size: .7em; "
+                  style="text-decoration:none;color:black;"
                   href={translations[currentLanguage].linkSweeek}
                   >{translations[currentLanguage].linkSweeek.substring(
                     translations[currentLanguage].linkSweeek.indexOf("//") + 2
@@ -232,13 +230,11 @@
                 >
                     </td>
                   </tr>
-                  </table>
-                  <table>
                     <tr style="line-height: 16px;">
-                      <td >
+                      <td width="16" height="16" style="width:16px;height:16px;">
                         <img width="16" height="16" style="width:16px;height:16px;" src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/phone.png" alt="Phone" />
                       </td>
-                      <td style="text-decoration:none;color:black;font-size: .7em;padding-left: 3px;">
+                      <td style="text-decoration:none;color:black;padding-left: 3px;">
                         {phone}
                       </td>
                     </tr>
@@ -341,6 +337,7 @@
             {/if}
           </table>
       </div>
+    </div>
     </div>
 
     <Form
