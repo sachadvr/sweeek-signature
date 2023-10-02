@@ -129,11 +129,9 @@
     //         timer--;
     //     }
     
-        document.addEventListener('DOMContentLoaded', function() {
             var timestamp = new Date().getTime();
             document.querySelector('img').src = 'https://i.imgur.com/YtSH5ba.gif?' + timestamp;
 
-        })
         const container = document.querySelector('.modal')
         const fireworks = new Fireworks.default(container)
 
