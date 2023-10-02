@@ -197,7 +197,7 @@
                 <table class="label" style="text-decoration: none; color: black; font-size: .7em;">
                   <tr>
                     <td>
-                      <img width="16" height="16" style="width:16px;height:16px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVBQTFRF////7ezsr6yrcm1sTUdFPjg2Pjc2TEZFcWxrrqur7Ovr6+vrd3JxHRYUFg4MHRUTdXFv6urptLGxIxsZIhoYsa+u//7+rquqIRoYrKmo/v7+IRkXsa6t6enoGRIQZmFfdG9uZWBeGREPc25tJR4c3dzb5eTkbGdlXlhXa2Zl4+Pi29raHBQSraqpdHBuKiMhKSIgrqyrJB0bq6inp6SjSUNBu7m4WVRSFw8NV1FQuLa1R0E/qaalbWhnLygmbmloqqemLiclPjc1IBkXop+ei4eGGxMRGhIQhoKBnpuaHxgWODIwPTc1GBAOtrSzcGxqODEvTEZETUdGSkRCRj8+cWxqamVkraqqsK6tGhMRsa6uIBgWHBUTlpOSkY2NXFZVW1ZUXFdVk4+OlZGQ5+fmUk1LUUtKbmln6ejoHxcVr62spKGh6OfnbGZlRkA+NzAuI0bR3gAAAStJREFUeJxlktlSwkAQRVuiAgJXERQJioiI+46IEkVFQVFcAfcdBdz4/zcnmSQk4bxM1T0zXV3dQ8TpsAmdXd12h7OHjLjcHqj09nlbeb8PBvwDg2oe8MPEUFDk9y05EBpW6vusOXszwoQb4dGIibEoxlmfHsQm4pNTOtMzsz7MeckGxOYXnItalaWgsLwCrJLARAJryfWUHKc2NtOQmNgiuyKwHRBkkdnZhSLStMcFsvsHufzhUQFcHNOJKlCMJE/PilDFOV1oAri84qcsSlRuCQ1ZVOialb/JG/Pbu3sgQa4H4PHp+UXn9e2dySpRBAh/OAx8RoEam1U91D7ERlwe71ebKUjKPkQpa8m/+aJIdJpMQxL1pf+Uc3qztbjpn9Sl379ms1RJVNXgHxVcO6qgM9kdAAAAAElFTkSuQmCC" alt="Insta" />
+                      <img width="16" height="16" style="width:16px;height:16px;" src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/mail.png" alt="Mail" />
                     </td>
                     <td style="padding-left: 3px;">
                       {email}
@@ -207,7 +207,7 @@
                 <table>
                   <tr style="line-height: 16px;">
                     <td>
-                      <img width="16" height="16" style="width:16px;height:16px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAkZQTFRF////3NrafXl4R0E/JyAeGxMRJh8dRkA+e3d22dfX397dV1FQGBAOFg4MFw8NU05M2tnZo6CfHxcVHRUTmpaWjYmIg39+qqemIhoYYl1cioaFjIiHZWBfIxsZoZ6dHhcVJBwapKGg8O/v/f39x8XExcPC/v7+8fHwqaalGxQS2djXeHRzNjAu4N/fm5iXY11c3dzbHBQS29nZaWRimJWU5OPjPDUzcm1r3dzcNS4sJR4c4eDfdXBvraqpf3p4eXRzuLa1b2po5uXkKSIgMCko1tXUnZmZGREPlpKR8vLx9fX19fX0/v39lJCPamVkLCQi6+rqNi8tKCEf397eTkhGMispMCknYFtaT0lHWVNSxcLCSkRDzczLU01Lv729XllXRkA/RT49cm1ssa6t5eTk4eHgtLGx19bVeHNyPzk3RD48cGtp1dPTgHx6n5yb3Nvb0c/PQDk4TkdGUkxLy8rJ0M7OycfHT0lIx8XFWFJRSUNBbGdlJh4c6OfnQzw7XFZV6ejoTEZFZmFfnpqaGhMR+Pj4z87Oy8nJ9PPzysjI2NbW9vX1zszM9/f3l5ST3t3cODEvj4uKJx8dpKKhiISDsK2sh4OD0dDPMywr19bWf3p5yMXFLSYkLCUjfnl4oJ2cysjHPDY0d3NxKiMhz83NyMbG9/b2z87NlpOSJh4d2djYrquqLycmY15cfnp4fnp5ZF9dHBUTIRkXpqKhxMLBNC0su7m47OvrLiclKyQienZ1s7CvamRjRT48Pjg2Qz07ZWBe5uXl9NXf/AAAAaRJREFUeJxjYIAARiZmFlZWNnYOTgZkwMXNwwsFfPwCCHFBIV4kICwCExflRQNiEHFxCE9CUkpaRhbClgObLw9iKigqKauoqqlrsIF4mlpACW0QS0dXT99A2NDI2MTUDMQ3Z2CwsATSVtY2PLZ2PDz2DjyOTs5AARdXBjd3IO2h5ump7OXp6e3j6akmB3K0L4MfkPIPCAxiNw0CguCQoNCAMKBQOEMEkIyM4uOLjuEDApVYPr64eKBQAkMikEwy8vBITvEAgtQ0D4/0DKBQJkMWkMzOyc3N080FgnzF3NwCG6BQIUMRkCwu4eVlLgU5s6ycl7eiEsioYqgGkjW15XX1DXVAkCJZ19gAcm8TQ3MLkJJubWvv4Ozs7Opu7+n1AAq49zH0TwBpiZk4abKovPyUqTXTpoM0zJjJwDALZPaE2YIZwXPmWsybv2AhiL9IjYEheDGI5ey7xGupyrLlK/xBvJWrQMG7GhJNa9auW78hDMzcqAiJkNWbUONJfrMaNAq3bEUWd9mmBo/07WI7+KDCO3fVoqST2t179u7bt/+A7UGocgBX7G0yWXVO3QAAAABJRU5ErkJggg==" alt="Insta" />
+                      <img width="16" height="16" style="width:16px;height:16px;" src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/website.png" alt="Website" />
                     </td>
                     <td style="padding-left: 3px;">
                       <a
@@ -223,7 +223,7 @@
                   <table>
                     <tr style="line-height: 16px;">
                       <td >
-                        <img width="16" height="16" style="width:16px;height:16px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAYBQTFRF////+fn53NvbuLW1mZaVi4eGjIiHuba23dvb+vn5+fj4wb++b2ppLSYkFg4MLicmcWxrw8HA5eTjd3JxHRYUHhYUenV05uXl2NfWRT89SEJA2tjY4eDgPTY0Pjg25OPjVU9OIhoYGBAOWlRS+vr6o6CftrOzcm1sGhIQFw8NqaalNi8uGREP2NbWenZ0OjQy+/v6u7m5NC0r/Pz8XFZVQzw69vb2WVRSdXBvR0A/IhoZ9fX1mJWUTEZEMisptLGwvbq6NzAvLicl7+/ugXx7MywqNjAudnJxIhsZUUpJGxMRPDY0UUtKj4uK/f39sa6uT0lHraqph4OCV1FPg39+lZKRhYF/ioaF1tTUiIOC8fDwKyQiGxMSUUtJXVdWwL6+8/Pzsa+uVlBPx8XFHxcVHRUTjoqJa2ZlHxgWIBkXzcvKhH9+iYWEaWNibGdm+/r6IBgWenZ19/f3/v7+qqemRj8+R0E/7+/vo5+fYVxaOzQzJR0bLCUjOzUzY11cpKGhv0UALAAAATBJREFUeJxdkmVDAkEQhl8QC/EUDwMbPPvMQ+zuM7FQsRM7sDH+urO33rnH+2Vm59mYWIDL4UxzpWe4MrOyIcqd48mVDOXlex3/8QLZJ1kqLCo24yV+yabSMh4vr5BSVFll3F/N/EBQJDUKgVrm+evqGwTQ2ER5NpOjtkBpFUlbOzqY7aSTWki8zAsPM10Ewt0i6EEvM339wIAtsUEMGXYYGPGJYBRjPPNxYEIVwCSmuCO7oUwHpJlZna/nMP+3ZUHB4tJyRFvhZBVrZk3r1FUqWNswehDFpllXcGubjyBGix0nsGs9uLd/QJ04ZDkc0Y7jE4uchqJn53FyLi7Z2StbY5nUaz7umxSi3t7xSYXluBi/f3g0Z5t4etbNsP4SSQjf5PXt/SOWTH5+ff/wpPELFdE3M2VrBN8AAAAASUVORK5CYII=" alt="Insta" />
+                        <img width="16" height="16" style="width:16px;height:16px;" src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/phone.png" alt="Phone" />
                       </td>
                       <td style="text-decoration:none;color:black;font-size: .7em;padding-left: 3px;">
                         {phone}
