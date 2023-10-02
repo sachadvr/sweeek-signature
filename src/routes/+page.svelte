@@ -173,8 +173,8 @@
       <div class="signature">
         <div style="">
           <table
-            style="background-color: black;
-  color: white;
+            style="background-color: white;
+  color: black;
   padding: 20px;
   width: 100%;
   min-width: 100%;
@@ -182,52 +182,68 @@
   "
           >
             <tr style="display:block; padding-bottom: 1rem;">
-              <td style="padding: 0 1rem;">
+              <td style="padding: 0 1 rem">
+                <div class="label" style="font-weight: 700; font-size: 2em; line-height: 32px; font-family: monospace;">
+                  {firstName}
+                  {lastName}
+                </div>
+
+                <div class="label" style="font-weight: 500; font-size: 1em;">{jobTitle}</div>
+              </td>
+            </tr>
+            <tr style="display:block; padding-bottom: 1rem;">
+              
+              <td style="padding: 0 10px 0 0;">
+                <div class="label" style="text-decoration: none; color: black; font-size: .7em;">
+                  {email}
+                </div>
+                <div>
+                  <a
+                  style="text-decoration:none;color:black;font-size: .7em;"
+                  href={translations[currentLanguage].linkSweeek}
+                  >{translations[currentLanguage].linkSweeek.substring(
+                    translations[currentLanguage].linkSweeek.indexOf("//") + 2
+                  )}</a
+                >
+                  </div>
+                <div class="label" style="text-decoration: none; color: black; font-size: .7em;">
+                  {phone}
+                </div>
+              </td>
+              <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px;">
+                <div style="font-size: .7em; font-weight: 100; white-space: nowrap;">
+                <div>270 Avenue de l'Espace,</div>
+                <div>59118 Wambrechies</div>
+                </div>
+              </td>
+              <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px; margin:0px 0px 0px 0px;">
                 {#if logoUrl}
                   <img
-                    width="250"
-                    style="padding-right: 2rem;"
+                    width="200"
                     src={logoUrl}
                     alt="Logo"
                     class="logo"
                   />
                 {:else}
                   <img
-                    width="250"
-                    style="padding-right: 2rem;"
+                    width="200"
                     src="https://alicegarden.atlassian.net/s/-3o5b4z/b/5/e932d65b444872da6155b2fc89562bb8/_/jira-logo-scaled.png"
                     alt="Placeholder Logo"
                     class="logo"
                   />
+                 <div style="padding-left: 30px; font-size: .8rem;">Have a sweet week.</div>
                 {/if}
-              </td>
-              <td style="padding: 0 1rem;">
-                <div class="label" style="font-weight: 700;">
-                  {firstName}
-                  {lastName}
-                </div>
-
-                <div class="label">{jobTitle}</div>
-                <div class="label" style="text-decoration: none; color: white;">
-                  {email}
-                </div>
-                <div class="label" style="text-decoration: none; color: white;">
-                  {phone}
-                </div>
               </td>
             </tr>
             <tr>
+              <td style="background:none; border:solid 12px black; border-width:12px 0 0 0; height:12px; margin:0px 0px 0px 0px;">
+                </td>
+              </tr>
+            {#if false == true}
+            <tr>
               <td
-                style="background:none; border:solid 1px white; border-width:1px 0 0 0; height:1px; width:100%; margin:0px 0px 0px 0px;"
+                style="background:none; border:solid 12px black; border-width:12px 0 0 0; height:12px; margin:0px 0px 0px 0px;"
               >
-                <a
-                  style="text-decoration:none;color:white;"
-                  href={translations[currentLanguage].linkSweeek}
-                  >{translations[currentLanguage].linkSweeek.substring(
-                    translations[currentLanguage].linkSweeek.indexOf(".") + 1
-                  )}</a
-                >
-                -
                 <a href="https://instagram.com/sweeekofficial/">
                   <img
                     width="15"
@@ -266,6 +282,7 @@
                 >
               </td>
             </tr>
+            {/if}
           </table>
         </div>
       </div>
@@ -287,7 +304,7 @@
     .signature > div {
       margin: 0 !important;
       padding: 20px;
-      background: black;
+      background: white;
       overflow: hidden;
     }
 
