@@ -183,7 +183,7 @@
           >
             <tr style="display:block; padding-bottom: 1rem;">
               <td style="padding: 0 1 rem">
-                <table class="label" style="font-weight: 700; font-size: 2em; line-height: 32px; font-family: monospace; white-space: nowrap;">
+                <table class="label" style="font-weight: 700; font-size: 2em; line-height: 32px; font-family: sans-serif; white-space: nowrap;">
                   <tr>
                     <td>
                       {firstName}
@@ -200,17 +200,17 @@
                 </table>
               </td>
             </tr>
-            <tr style="padding-bottom: 1rem;">
+            <tr style="padding-bottom: 1rem;  ">
               
               <td style="padding: 0 10px 0 0; line-height: 16px;">
-                <table class="label" style="text-decoration: none; color: black; font-size: .7em;">
+                <table class="label" style="text-decoration: none; color: black; font-size: .7em; min-width: 150px;">
                   <tr>
                     <td>
                       <img width="16" height="16" style="width:16px;height:16px;" src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/mail.png" alt="Mail" />
                     </td>
                     <td>
                       <a
-                  style="text-decoration:none;color:black; "
+                  style="text-decoration:none;color:black; padding-left:3px;"
                   href={'mailto:' +email}
                   >{email}</a
                 >
@@ -244,9 +244,18 @@
                     </tr>
                     </table>
               <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px;">
-                <table style="font-size: .7em; font-weight: 100; white-space: nowrap;">
-                <tr><td>270 Avenue de l'Espace,</td></tr>
-                <tr><td>59118 Wambrechies</td></tr>
+                <table style="font-size: .7em; font-weight: 100; min-width: 130px;">
+                <tr><td><a
+                  style="text-decoration:none;color:black;"
+                  href="#"
+                  >270 Avenue de l'Espace,</a
+                ></td></tr>
+                <tr><td>
+                  <a
+                  style="text-decoration:none;color:black;"
+                  href="#"
+                  >59118 Wambrechies</a
+                ></td></tr>
                 </table>
               </td>
               <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px; margin:0px 0px 0px 0px;">
