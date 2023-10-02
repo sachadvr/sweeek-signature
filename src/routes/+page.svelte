@@ -240,7 +240,7 @@
                     </tr>
                     </table>
               <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px;">
-                <table style="font-size: .7em; font-weight: 100; min-width: 130px; margin: auto; text-align: center;">
+                <table style="font-size: .7em; font-weight: 100; min-width: 130px; text-align: center;">
                 <tr><td><a
                   style="text-decoration:none;color:black;"
                   href="#"
@@ -272,7 +272,7 @@
                     alt="Placeholder Logo"
                     class="logo"
                   /></td></tr>
-                 <tr><td style="padding-left: 30px; font-size: .8rem;">Have a sweet week.</td></tr>
+                 <tr><td style="padding-left: 35px; font-size: .8rem;">Have a sweet week.</td></tr>
                 </table>
                 {/if}
               </td>
