@@ -173,6 +173,7 @@
       <div class="signature">
         <div style="">
           <table
+          cellspacing="0"
             style="background-color: white;
   color: black;
   padding: 20px;
@@ -183,15 +184,24 @@
           >
             <tr style="display:block; padding-bottom: 1rem;">
               <td style="padding: 0 1 rem">
-                <div class="label" style="font-weight: 700; font-size: 2em; line-height: 32px; font-family: monospace;">
-                  {firstName}
-                  {lastName}
-                </div>
+                <table class="label" style="font-weight: 700; font-size: 2em; line-height: 32px; font-family: monospace; white-space: nowrap;">
+                  <tr>
+                    <td>
+                      {firstName}
+                      {lastName}
+                    </td>
+                  </tr>
+                  
+                </table>
 
-                <div class="label" style="font-weight: 500; font-size: 1em;">{jobTitle}</div>
+                <table class="label" style="font-weight: 500; font-size: 1em;">
+                  <tr>
+                    <td>{jobTitle}</td>
+                  </tr>
+                </table>
               </td>
             </tr>
-            <tr style="display:block; padding-bottom: 1rem;">
+            <tr style="padding-bottom: 1rem;">
               
               <td style="padding: 0 10px 0 0; line-height: 16px;">
                 <table class="label" style="text-decoration: none; color: black; font-size: .7em;">
@@ -199,8 +209,12 @@
                     <td>
                       <img width="16" height="16" style="width:16px;height:16px;" src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/mail.png" alt="Mail" />
                     </td>
-                    <td style="padding-left: 3px;">
-                      {email}
+                    <td>
+                      <a
+                  style="text-decoration:none;color:black; "
+                  href={'mailto:' +email}
+                  >{email}</a
+                >
                     </td>
                   </tr>
                 </table>
@@ -231,34 +245,48 @@
                     </tr>
                     </table>
               <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px;">
-                <div style="font-size: .7em; font-weight: 100; white-space: nowrap;">
-                <div>270 Avenue de l'Espace,</div>
-                <div>59118 Wambrechies</div>
-                </div>
+                <table style="font-size: .7em; font-weight: 100; white-space: nowrap;">
+                <tr><td>270 Avenue de l'Espace,</td></tr>
+                <tr><td>59118 Wambrechies</td></tr>
+                </table>
               </td>
               <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px; margin:0px 0px 0px 0px;">
+                
+                  
                 {#if logoUrl}
-                  <img
+                <img
                     width="200"
                     src={logoUrl}
                     alt="Logo"
                     class="logo"
                   />
                 {:else}
-                  <img
+                <table>
+                  <tr><td><img
                     width="200"
                     src="https://alicegarden.atlassian.net/s/-3o5b4z/b/5/e932d65b444872da6155b2fc89562bb8/_/jira-logo-scaled.png"
                     alt="Placeholder Logo"
                     class="logo"
-                  />
-                 <div style="padding-left: 30px; font-size: .8rem;">Have a sweet week.</div>
+                  /></td></tr>
+                 <tr><td style="padding-left: 30px; font-size: .8rem;">Have a sweet week.</td></tr>
+                </table>
                 {/if}
               </td>
             </tr>
+            <tr style="line-height: 15px;">
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
             <tr>
               <td style="background:none; border:solid 12px black; border-width:12px 0 0 0; height:12px; margin:0px 0px 0px 0px;">
-                </td>
-              </tr>
+              </td>
+              <td style="background:none; border:solid 12px black; border-width:12px 0 0 0; height:12px; margin:0px 0px 0px 0px;">
+              </td>
+              <td style="background:none; border:solid 12px black; border-width:12px 0 0 0; height:12px; margin:0px 0px 0px 0px;">
+              </td>
+            </tr>
+              
             {#if false == true}
             <tr>
               <td
