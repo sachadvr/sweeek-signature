@@ -1,3 +1,8 @@
+<script>
+
+  import { attr } from "svelte/internal";
+
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +23,7 @@
         }
 
         .modal {
-            background-color: white;
+            background-color: black;
 
             position: relative;
             width: 100%;
@@ -98,7 +103,7 @@
 <body>
     <div class="modal">
         <div class="popup-content">
-            <h1>Alice's Garden</h1>
+            <img src='https://i.imgur.com/oVWqQvB.gif' alt="GIF" />
         </div>
     </div>
 
@@ -109,25 +114,33 @@
             fireworks.stop();
         }
         document.querySelector('.modal').classList.add('active');
-        document.querySelector('.popup-content h1').addEventListener('animationend', function() {
-            let word = "Alice's Garden";
-            let timer = word.length;
-    let interval = setInterval(() => {
-        if (timer == 0) {
-            clearInterval(interval);
-            document.querySelector('.modal').classList.add('animation');
-            document.querySelector('.popup-content h1').innerHTML = "sweeek.";
-            fireworks.start()
-        } else {
-            let trimmedWord = word.slice(0, timer);
-            document.querySelector('.popup-content h1').innerHTML = trimmedWord;
-            timer--;
-        }
-    }, 100);
-});
+    //     document.querySelector('.popup-content h1').addEventListener('animationend', function() {
+    //         let word = "Alice's Garden";
+    //         let timer = word.length;
+    // let interval = setInterval(() => {
+    //     if (timer == 0) {
+    //         clearInterval(interval);
+    //         document.querySelector('.modal').classList.add('animation');
+    //         document.querySelector('.popup-content h1').innerHTML = "sweeek.";
+    //         fireworks.start()
+    //     } else {
+    //         let trimmedWord = word.slice(0, timer);
+    //         document.querySelector('.popup-content h1').innerHTML = trimmedWord;
+    //         timer--;
+    //     }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            var timestamp = new Date().getTime();
+            document.querySelector('img').src = 'https://i.imgur.com/YtSH5ba.gif?' + timestamp;
 
+        })
         const container = document.querySelector('.modal')
         const fireworks = new Fireworks.default(container)
+
+        setTimeout(()=> {
+            fireworks.start();
+        },1000);
+
     </script>
 </body>
 
