@@ -1,4 +1,4 @@
-import{S as J,i as X,s as Z,k as t,a as m,q as F,l as o,c as p,m as c,h as r,r as O,n as i,$ as Q,b as A,E as n,I as W}from"../chunks/index.0c4ffdad.js";function nn(U){let u,x,l,e,h,j,T,E,L,g,I,k,M,b,D,z,S,C,H,f,w,v,y,G,P,_,Y;return{c(){u=t("!DOCTYPE"),x=m(),l=t("html"),e=t("head"),h=t("script"),T=m(),E=t("meta"),L=m(),g=t("link"),I=m(),k=t("meta"),M=m(),b=t("title"),D=F("Fireworks Popup"),z=m(),S=t("style"),C=F(`body {
+import{S as J,i as X,s as Z,k as t,a as d,q as F,l as o,c as p,m as c,h as r,r as A,n as i,$ as Q,b as W,E as n,I as j}from"../chunks/index.0c4ffdad.js";function nn(U){let u,x,l,e,h,G,T,q,L,g,I,k,M,b,D,z,S,H,P,f,w,v,y,O,Y,_,C;return{c(){u=t("!DOCTYPE"),x=d(),l=t("html"),e=t("head"),h=t("script"),T=d(),q=t("meta"),L=d(),g=t("link"),I=d(),k=t("meta"),M=d(),b=t("title"),D=F("Fireworks Popup"),z=d(),S=t("style"),H=F(`body {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -80,7 +80,7 @@ import{S as J,i as X,s as Z,k as t,a as m,q as F,l as o,c as p,m as c,h as r,r a
             100% {
                 width: 100%;
             }
-        }`),H=m(),f=t("body"),w=t("div"),v=t("div"),y=t("img"),P=m(),_=t("script"),Y=F(`function closeModal() {
+        }`),P=d(),f=t("body"),w=t("div"),v=t("div"),y=t("img"),Y=d(),_=t("script"),C=F(`function closeModal() {
             var modal = document.querySelector('.modal');
             modal.style.display = 'none';
             fireworks.stop();
@@ -101,17 +101,15 @@ import{S as J,i as X,s as Z,k as t,a as m,q as F,l as o,c as p,m as c,h as r,r a
     //         timer--;
     //     }
     
-        document.addEventListener('DOMContentLoaded', function() {
             var timestamp = new Date().getTime();
             document.querySelector('img').src = 'https://i.imgur.com/YtSH5ba.gif?' + timestamp;
 
-        })
         const container = document.querySelector('.modal')
         const fireworks = new Fireworks.default(container)
 
         setTimeout(()=> {
             fireworks.start();
-        },1000);`),this.h()},l(s){u=o(s,"!DOCTYPE",{html:!0}),x=p(s),l=o(s,"HTML",{lang:!0});var d=c(l);e=o(d,"HEAD",{});var a=c(e);h=o(a,"SCRIPT",{src:!0});var $=c(h);$.forEach(r),T=p(a),E=o(a,"META",{charset:!0}),L=p(a),g=o(a,"LINK",{href:!0,rel:!0}),I=p(a),k=o(a,"META",{name:!0,content:!0}),M=p(a),b=o(a,"TITLE",{});var V=c(b);D=O(V,"Fireworks Popup"),V.forEach(r),z=p(a),S=o(a,"STYLE",{});var B=c(S);C=O(B,`body {
+        },1000);`),this.h()},l(s){u=o(s,"!DOCTYPE",{html:!0}),x=p(s),l=o(s,"HTML",{lang:!0});var m=c(l);e=o(m,"HEAD",{});var a=c(e);h=o(a,"SCRIPT",{src:!0});var $=c(h);$.forEach(r),T=p(a),q=o(a,"META",{charset:!0}),L=p(a),g=o(a,"LINK",{href:!0,rel:!0}),I=p(a),k=o(a,"META",{name:!0,content:!0}),M=p(a),b=o(a,"TITLE",{});var V=c(b);D=A(V,"Fireworks Popup"),V.forEach(r),z=p(a),S=o(a,"STYLE",{});var B=c(S);H=A(B,`body {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -193,7 +191,7 @@ import{S as J,i as X,s as Z,k as t,a as m,q as F,l as o,c as p,m as c,h as r,r a
             100% {
                 width: 100%;
             }
-        }`),B.forEach(r),a.forEach(r),H=p(d),f=o(d,"BODY",{});var q=c(f);w=o(q,"DIV",{class:!0});var R=c(w);v=o(R,"DIV",{class:!0});var K=c(v);y=o(K,"IMG",{src:!0,alt:!0}),K.forEach(r),R.forEach(r),P=p(q),_=o(q,"SCRIPT",{});var N=c(_);Y=O(N,`function closeModal() {
+        }`),B.forEach(r),a.forEach(r),P=p(m),f=o(m,"BODY",{});var E=c(f);w=o(E,"DIV",{class:!0});var R=c(w);v=o(R,"DIV",{class:!0});var K=c(v);y=o(K,"IMG",{src:!0,alt:!0}),K.forEach(r),R.forEach(r),Y=p(E),_=o(E,"SCRIPT",{});var N=c(_);C=A(N,`function closeModal() {
             var modal = document.querySelector('.modal');
             modal.style.display = 'none';
             fireworks.stop();
@@ -214,14 +212,12 @@ import{S as J,i as X,s as Z,k as t,a as m,q as F,l as o,c as p,m as c,h as r,r a
     //         timer--;
     //     }
     
-        document.addEventListener('DOMContentLoaded', function() {
             var timestamp = new Date().getTime();
             document.querySelector('img').src = 'https://i.imgur.com/YtSH5ba.gif?' + timestamp;
 
-        })
         const container = document.querySelector('.modal')
         const fireworks = new Fireworks.default(container)
 
         setTimeout(()=> {
             fireworks.start();
-        },1000);`),N.forEach(r),q.forEach(r),d.forEach(r),this.h()},h(){i(u,"html",""),Q(h.src,j="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js")||i(h,"src",j),i(E,"charset","UTF-8"),i(g,"href","https://fonts.cdnfonts.com/css/satoshi"),i(g,"rel","stylesheet"),i(k,"name","viewport"),i(k,"content","width=device-width, initial-scale=1.0"),Q(y.src,G="https://i.imgur.com/oVWqQvB.gif")||i(y,"src",G),i(y,"alt","GIF"),i(v,"class","popup-content"),i(w,"class","modal"),i(l,"lang","en")},m(s,d){A(s,u,d),A(s,x,d),A(s,l,d),n(l,e),n(e,h),n(e,T),n(e,E),n(e,L),n(e,g),n(e,I),n(e,k),n(e,M),n(e,b),n(b,D),n(e,z),n(e,S),n(S,C),n(l,H),n(l,f),n(f,w),n(w,v),n(v,y),n(f,P),n(f,_),n(_,Y)},p:W,i:W,o:W,d(s){s&&r(u),s&&r(x),s&&r(l)}}}class tn extends J{constructor(u){super(),X(this,u,null,nn,Z,{})}}export{tn as component};
+        },1000);`),N.forEach(r),E.forEach(r),m.forEach(r),this.h()},h(){i(u,"html",""),Q(h.src,G="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js")||i(h,"src",G),i(q,"charset","UTF-8"),i(g,"href","https://fonts.cdnfonts.com/css/satoshi"),i(g,"rel","stylesheet"),i(k,"name","viewport"),i(k,"content","width=device-width, initial-scale=1.0"),Q(y.src,O="https://i.imgur.com/oVWqQvB.gif")||i(y,"src",O),i(y,"alt","GIF"),i(v,"class","popup-content"),i(w,"class","modal"),i(l,"lang","en")},m(s,m){W(s,u,m),W(s,x,m),W(s,l,m),n(l,e),n(e,h),n(e,T),n(e,q),n(e,L),n(e,g),n(e,I),n(e,k),n(e,M),n(e,b),n(b,D),n(e,z),n(e,S),n(S,H),n(l,P),n(l,f),n(f,w),n(w,v),n(v,y),n(f,Y),n(f,_),n(_,C)},p:j,i:j,o:j,d(s){s&&r(u),s&&r(x),s&&r(l)}}}class tn extends J{constructor(u){super(),X(this,u,null,nn,Z,{})}}export{tn as component};
