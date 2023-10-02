@@ -240,7 +240,7 @@
                     </tr>
                     </table>
               <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px;">
-                <table style="font-size: .7em; font-weight: 100; min-width: 130px;">
+                <table style="font-size: .7em; font-weight: 100; min-width: 130px; margin: auto; text-align: center;">
                 <tr><td><a
                   style="text-decoration:none;color:black;"
                   href="#"
@@ -353,9 +353,15 @@
     />
   </div>
   <style>
-    .signature {
-      padding: 20px;
+    .signature table {
+      display:block;
+      overflow: scroll;
     }
+    table {
+      min-width: 0!important;
+      white-space: unset!important;
+    }
+    
     @keyframes slidein {
       0% {
         transform: translateY(-100%);
