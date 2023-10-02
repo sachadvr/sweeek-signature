@@ -5,13 +5,15 @@
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		
-		<link href="./_app/immutable/assets/0.90f0637b.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.1cc4b3ad.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.0c4ffdad.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.5408b0e2.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.ba61dd74.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.ec58b442.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/4.ceb9fd64.js"><!-- HEAD_svelte-17q8jbs_START --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"><!-- HEAD_svelte-17q8jbs_END -->
+		<link href="./_app/immutable/assets/0.ba7a07a1.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/index.32503cb2.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.8e5559a6.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.94a0dac5.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.d2272da4.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.d8b26e8d.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.a3ed7c16.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/4.ffef6b9e.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.8030db05.js"><!-- HEAD_svelte-17q8jbs_START --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"><!-- HEAD_svelte-17q8jbs_END -->
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -27,10 +29,13 @@
 
           <div class="wheel-container"><svg class="pointer" width="50" height="50" viewBox="0 0 255 254" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M118.5 1.981C80.351 9.662 54.457 31.12 39.438 67.5C28.45 94.114 14.73 144.387 11.191 171C10.642 175.125 8.826 186.375 7.155 196C3.366 217.818 1 235.791 1 242.754C1 247.063 1.465 248.556 3.414 250.505C4.742 251.832 6.879 253.178 8.164 253.494C9.449 253.81 21.75 252.286 35.5 250.105C49.25 247.925 66.575 245.198 74 244.045C118.943 237.067 150.154 229.118 183 216.287C197.737 210.53 207.318 205.258 216.573 197.812C249.727 171.142 263.702 117.822 248.608 75.59C245.075 65.706 237.393 51 235.763 51C235.278 51 235.143 50.578 235.462 50.061C235.781 49.545 235.469 48.758 234.769 48.311C234.069 47.865 232.85 46.246 232.06 44.713C229.183 39.135 215.78 25.98 206.966 20.085C192.396 10.339 178.49 4.498 162.75 1.512C151.733 -0.577997 130.067 -0.347998 118.5 1.981Z"></path></svg>
             <div style="rotate: 0deg" class="wheel"></div>
-            <button class="spin-button" style="color: white"></button></div>
+            </div>
+          
+          
+          <div class="winner-popup"><div class="popup-content flex items-center justify-center flex-col"><div class="flex flex-col gap-3 "><div class="font-bold inline-flex border border-black px-48 py-2 text-black" style="font-size:100px;">Daily</div>
+            <div class="flex gap-3 w-full"><button class="bg-white text-black text-2xl flex-1 mt-4 flex items-center gap-2 justify-center" style="border: 1px solid black"><svg class="svelte-fa  svelte-1w3t65e" style="height:1em;vertical-align:-.125em;transform-origin:center;overflow:visible" viewBox="0 0 448 512" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg"><g transform="translate(224 256)" transform-origin="112 0"><g transform="translate(0,0) scale(1,1)"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" fill="currentColor" transform="translate(-224 -256)"></path></g></g></svg>Commencer le daily?</button>
 
-          <div class="winner-popup"><div class="popup-content flex items-center justify-center flex-col"><div class="flex flex-col gap-3"><div class="font-bold inline-flex bg-black px-48 py-2 text-white" style="font-size:100px;">Daily</div>
-              <button class="bg-white text-black text-2xl" style="border: 1px solid black">Commencer le daily?</button></div></div></div>
+               <button class="bg-black text-white text-2xl flex-1 mt-4 flex items-center gap-2 justify-center" style="border: 1px solid black"><svg class="svelte-fa  svelte-1w3t65e" style="height:1em;vertical-align:-.125em;transform-origin:center;overflow:visible" viewBox="0 0 512 512" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg"><g transform="translate(256 256)" transform-origin="128 0"><g transform="translate(0,0) scale(1,1)"><path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z" fill="currentColor" transform="translate(-256 -256)"></path></g></g></svg> Des absents?</button></div></div></div></div>
           
 
           <style>.wheel-container {
@@ -83,8 +88,8 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
             width: 100%;
-            height: 100%;
             align-items: center;
+            height: 100%;
           }
 
           h2 {
@@ -125,7 +130,7 @@
 			
 			<script>
 				{
-					__sveltekit_1ozv72v = {
+					__sveltekit_7jm1pz = {
 						assets: "/sweeek-signature",
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
@@ -136,8 +141,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.1cc4b3ad.js"),
-						import("./_app/immutable/entry/app.ba61dd74.js")
+						import("./_app/immutable/entry/start.8e5559a6.js"),
+						import("./_app/immutable/entry/app.d8b26e8d.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 4],
