@@ -193,7 +193,7 @@
                   
                 </table>
 
-                <table class="label" style="font-weight: 500; font-size: 1em;">
+                <table class="label" style="font-weight: 500; font-size: 1em;white-space: nowrap;">
                   <tr>
                     <td>{jobTitle}</td>
                   </tr>
