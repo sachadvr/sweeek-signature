@@ -1,4 +1,4 @@
-import{S as Q,i as X,s as Z,k as t,a as m,q as T,l as o,c as p,m as s,h as a,r as L,n as l,$ as nn,b as G,E as n,I as O}from"../chunks/index.0c4ffdad.js";function en($){let h,E,c,e,f,W,I,S,M,v,z,k,P,g,A,D,x,H,C,u,w,y,_,F,Y,b,j;return{c(){h=t("!DOCTYPE"),E=m(),c=t("html"),e=t("head"),f=t("script"),I=m(),S=t("meta"),M=m(),v=t("link"),z=m(),k=t("meta"),P=m(),g=t("title"),A=T("Fireworks Popup"),D=m(),x=t("style"),H=T(`body {
+import{S as J,i as X,s as Z,k as t,a as m,q as F,l as o,c as p,m as c,h as r,r as O,n as i,$ as Q,b as A,E as n,I as W}from"../chunks/index.0c4ffdad.js";function nn(U){let u,x,l,e,h,j,T,E,L,g,I,k,M,b,D,z,S,C,H,f,w,v,y,G,P,_,Y;return{c(){u=t("!DOCTYPE"),x=m(),l=t("html"),e=t("head"),h=t("script"),T=m(),E=t("meta"),L=m(),g=t("link"),I=m(),k=t("meta"),M=m(),b=t("title"),D=F("Fireworks Popup"),z=m(),S=t("style"),C=F(`body {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -8,7 +8,7 @@ import{S as Q,i as X,s as Z,k as t,a as m,q as T,l as o,c as p,m as s,h as a,r a
         }
 
         .modal {
-            background-color: white;
+            background-color: black;
 
             position: relative;
             width: 100%;
@@ -80,31 +80,38 @@ import{S as Q,i as X,s as Z,k as t,a as m,q as T,l as o,c as p,m as s,h as a,r a
             100% {
                 width: 100%;
             }
-        }`),C=m(),u=t("body"),w=t("div"),y=t("div"),_=t("h1"),F=T("Alice's Garden"),Y=m(),b=t("script"),j=T(`function closeModal() {
+        }`),H=m(),f=t("body"),w=t("div"),v=t("div"),y=t("img"),P=m(),_=t("script"),Y=F(`function closeModal() {
             var modal = document.querySelector('.modal');
             modal.style.display = 'none';
             fireworks.stop();
         }
         document.querySelector('.modal').classList.add('active');
-        document.querySelector('.popup-content h1').addEventListener('animationend', function() {
-            let word = "Alice's Garden";
-            let timer = word.length;
-    let interval = setInterval(() => {
-        if (timer == 0) {
-            clearInterval(interval);
-            document.querySelector('.modal').classList.add('animation');
-            document.querySelector('.popup-content h1').innerHTML = "sweeek.";
-            fireworks.start()
-        } else {
-            let trimmedWord = word.slice(0, timer);
-            document.querySelector('.popup-content h1').innerHTML = trimmedWord;
-            timer--;
-        }
-    }, 100);
-});
+    //     document.querySelector('.popup-content h1').addEventListener('animationend', function() {
+    //         let word = "Alice's Garden";
+    //         let timer = word.length;
+    // let interval = setInterval(() => {
+    //     if (timer == 0) {
+    //         clearInterval(interval);
+    //         document.querySelector('.modal').classList.add('animation');
+    //         document.querySelector('.popup-content h1').innerHTML = "sweeek.";
+    //         fireworks.start()
+    //     } else {
+    //         let trimmedWord = word.slice(0, timer);
+    //         document.querySelector('.popup-content h1').innerHTML = trimmedWord;
+    //         timer--;
+    //     }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            var timestamp = new Date().getTime();
+            document.querySelector('img').src = 'https://i.imgur.com/YtSH5ba.gif?' + timestamp;
 
+        })
         const container = document.querySelector('.modal')
-        const fireworks = new Fireworks.default(container)`),this.h()},l(i){h=o(i,"!DOCTYPE",{html:!0}),E=p(i),c=o(i,"HTML",{lang:!0});var d=s(c);e=o(d,"HEAD",{});var r=s(e);f=o(r,"SCRIPT",{src:!0});var J=s(f);J.forEach(a),I=p(r),S=o(r,"META",{charset:!0}),M=p(r),v=o(r,"LINK",{href:!0,rel:!0}),z=p(r),k=o(r,"META",{name:!0,content:!0}),P=p(r),g=o(r,"TITLE",{});var R=s(g);A=L(R,"Fireworks Popup"),R.forEach(a),D=p(r),x=o(r,"STYLE",{});var V=s(x);H=L(V,`body {
+        const fireworks = new Fireworks.default(container)
+
+        setTimeout(()=> {
+            fireworks.start();
+        },1000);`),this.h()},l(s){u=o(s,"!DOCTYPE",{html:!0}),x=p(s),l=o(s,"HTML",{lang:!0});var d=c(l);e=o(d,"HEAD",{});var a=c(e);h=o(a,"SCRIPT",{src:!0});var $=c(h);$.forEach(r),T=p(a),E=o(a,"META",{charset:!0}),L=p(a),g=o(a,"LINK",{href:!0,rel:!0}),I=p(a),k=o(a,"META",{name:!0,content:!0}),M=p(a),b=o(a,"TITLE",{});var V=c(b);D=O(V,"Fireworks Popup"),V.forEach(r),z=p(a),S=o(a,"STYLE",{});var B=c(S);C=O(B,`body {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -114,7 +121,7 @@ import{S as Q,i as X,s as Z,k as t,a as m,q as T,l as o,c as p,m as s,h as a,r a
         }
 
         .modal {
-            background-color: white;
+            background-color: black;
 
             position: relative;
             width: 100%;
@@ -186,28 +193,35 @@ import{S as Q,i as X,s as Z,k as t,a as m,q as T,l as o,c as p,m as s,h as a,r a
             100% {
                 width: 100%;
             }
-        }`),V.forEach(a),r.forEach(a),C=p(d),u=o(d,"BODY",{});var q=s(u);w=o(q,"DIV",{class:!0});var B=s(w);y=o(B,"DIV",{class:!0});var K=s(y);_=o(K,"H1",{});var N=s(_);F=L(N,"Alice's Garden"),N.forEach(a),K.forEach(a),B.forEach(a),Y=p(q),b=o(q,"SCRIPT",{});var U=s(b);j=L(U,`function closeModal() {
+        }`),B.forEach(r),a.forEach(r),H=p(d),f=o(d,"BODY",{});var q=c(f);w=o(q,"DIV",{class:!0});var R=c(w);v=o(R,"DIV",{class:!0});var K=c(v);y=o(K,"IMG",{src:!0,alt:!0}),K.forEach(r),R.forEach(r),P=p(q),_=o(q,"SCRIPT",{});var N=c(_);Y=O(N,`function closeModal() {
             var modal = document.querySelector('.modal');
             modal.style.display = 'none';
             fireworks.stop();
         }
         document.querySelector('.modal').classList.add('active');
-        document.querySelector('.popup-content h1').addEventListener('animationend', function() {
-            let word = "Alice's Garden";
-            let timer = word.length;
-    let interval = setInterval(() => {
-        if (timer == 0) {
-            clearInterval(interval);
-            document.querySelector('.modal').classList.add('animation');
-            document.querySelector('.popup-content h1').innerHTML = "sweeek.";
-            fireworks.start()
-        } else {
-            let trimmedWord = word.slice(0, timer);
-            document.querySelector('.popup-content h1').innerHTML = trimmedWord;
-            timer--;
-        }
-    }, 100);
-});
+    //     document.querySelector('.popup-content h1').addEventListener('animationend', function() {
+    //         let word = "Alice's Garden";
+    //         let timer = word.length;
+    // let interval = setInterval(() => {
+    //     if (timer == 0) {
+    //         clearInterval(interval);
+    //         document.querySelector('.modal').classList.add('animation');
+    //         document.querySelector('.popup-content h1').innerHTML = "sweeek.";
+    //         fireworks.start()
+    //     } else {
+    //         let trimmedWord = word.slice(0, timer);
+    //         document.querySelector('.popup-content h1').innerHTML = trimmedWord;
+    //         timer--;
+    //     }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            var timestamp = new Date().getTime();
+            document.querySelector('img').src = 'https://i.imgur.com/YtSH5ba.gif?' + timestamp;
 
+        })
         const container = document.querySelector('.modal')
-        const fireworks = new Fireworks.default(container)`),U.forEach(a),q.forEach(a),d.forEach(a),this.h()},h(){l(h,"html",""),nn(f.src,W="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js")||l(f,"src",W),l(S,"charset","UTF-8"),l(v,"href","https://fonts.cdnfonts.com/css/satoshi"),l(v,"rel","stylesheet"),l(k,"name","viewport"),l(k,"content","width=device-width, initial-scale=1.0"),l(y,"class","popup-content"),l(w,"class","modal"),l(c,"lang","en")},m(i,d){G(i,h,d),G(i,E,d),G(i,c,d),n(c,e),n(e,f),n(e,I),n(e,S),n(e,M),n(e,v),n(e,z),n(e,k),n(e,P),n(e,g),n(g,A),n(e,D),n(e,x),n(x,H),n(c,C),n(c,u),n(u,w),n(w,y),n(y,_),n(_,F),n(u,Y),n(u,b),n(b,j)},p:O,i:O,o:O,d(i){i&&a(h),i&&a(E),i&&a(c)}}}class on extends Q{constructor(h){super(),X(this,h,null,en,Z,{})}}export{on as component};
+        const fireworks = new Fireworks.default(container)
+
+        setTimeout(()=> {
+            fireworks.start();
+        },1000);`),N.forEach(r),q.forEach(r),d.forEach(r),this.h()},h(){i(u,"html",""),Q(h.src,j="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js")||i(h,"src",j),i(E,"charset","UTF-8"),i(g,"href","https://fonts.cdnfonts.com/css/satoshi"),i(g,"rel","stylesheet"),i(k,"name","viewport"),i(k,"content","width=device-width, initial-scale=1.0"),Q(y.src,G="https://i.imgur.com/oVWqQvB.gif")||i(y,"src",G),i(y,"alt","GIF"),i(v,"class","popup-content"),i(w,"class","modal"),i(l,"lang","en")},m(s,d){A(s,u,d),A(s,x,d),A(s,l,d),n(l,e),n(e,h),n(e,T),n(e,E),n(e,L),n(e,g),n(e,I),n(e,k),n(e,M),n(e,b),n(b,D),n(e,z),n(e,S),n(S,C),n(l,H),n(l,f),n(f,w),n(w,v),n(v,y),n(f,P),n(f,_),n(_,Y)},p:W,i:W,o:W,d(s){s&&r(u),s&&r(x),s&&r(l)}}}class tn extends J{constructor(u){super(),X(this,u,null,nn,Z,{})}}export{tn as component};
