@@ -3,12 +3,15 @@
 
 import { onMount, beforeUpdate, afterUpdate } from "svelte";
   import { select, arc, pie } from "d3";
-  import axios from 'axios';
+  import myJson from "../../lib/test.json";
+  import { faCheck, faCog, faExplosion } from "@fortawesome/free-solid-svg-icons";
+  import Fa from "svelte-fa/src/fa.svelte";
 
   export let json = []
-  let spinDeg = 0; // Start at 0 degrees
+  let spinDeg = 0;
   let showWinnerPopup = false;
   let showLoadingPopup = true;
+  let showSettingsPopup = false;
   let isSpinning = false;
   let currentTimer;
   let filteredList = [];
@@ -22,17 +25,11 @@ import { onMount, beforeUpdate, afterUpdate } from "svelte";
       }
     }, 1000)
   }
-  const generateColors = () =>
-    `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(
-      Math.random() * 255
-    )}, ${Math.floor(Math.random() * 255)})`;
 
-  export let items = ["Julien", "Sacha", "Achille", "Geoffrey", "Nicolas","Marie", "Antoine", "Fabien"];
-  export let colors = Array.from({ length: items.length }, (item, index) => {
-  return index % 2 === 0 ? "#005df6" : "black";
-});
+  export let items = [];
+  export let itemsNames = [];
+  export let colors = [];
   export let size = 500
-  let pointerSize = size / 8;
 
   let selectedItem = null;
   export let winningItem = null;
@@ -40,8 +37,21 @@ import { onMount, beforeUpdate, afterUpdate } from "svelte";
     showWinnerPopup = false;
     showLoadingPopup = false;
     clearInterval(currentTimer);
+    items.splice(itemsNames.indexOf(winningItem), 1);
+    itemsNames.splice(itemsNames.indexOf(winningItem), 1);
     time = 60;
   };
+
+  const openSettings = () => {
+    showWinnerPopup = false;
+    showLoadingPopup = false;
+    showSettingsPopup = true;
+  }
+  const closeSettings = () => {
+    showWinnerPopup = false;
+    showLoadingPopup = true;
+    showSettingsPopup = false;
+  }
   const pause = (target) => {
     // startTimer()
     if (target.target.innerText == 'Pause') {
@@ -58,15 +68,13 @@ import { onMount, beforeUpdate, afterUpdate } from "svelte";
       const currentAngle = (360 - (spinDeg % 360)) % 360;
       const anglePerSegment = 360 / items.length;
       const selectedIndex = Math.floor(currentAngle / anglePerSegment);
-      console.log(selectedIndex);
-      selectedItem = items[selectedIndex];
+      selectedItem = itemsNames[selectedIndex];
       winningItem = selectedItem;
-      filteredList= jsonTest.filter((e) => {return e.fields.assignee?.displayName.split(' ')[0] == winningItem });
+      filteredList= jsonTest.filter((e) => {return e.fields.assignee?.displayName == winningItem });
       console.log(filteredList);
-
       if (items.length > 1) {
         setTimeout(() => {showWinnerPopup = true;
-          items.splice(items.indexOf(winningItem), 1);startTimer();}, 1000);
+          startTimer();}, 1000);
 
 
 
@@ -110,6 +118,8 @@ import { onMount, beforeUpdate, afterUpdate } from "svelte";
     const pieGenerator = pie().value(1);
     const dataWithArc = pieGenerator(items);
     const arcGenerator = arc().innerRadius(0).outerRadius(size / 2);
+    
+    // Render pie slices
     svg
       .selectAll("mySlices")
       .data(dataWithArc)
@@ -117,37 +127,55 @@ import { onMount, beforeUpdate, afterUpdate } from "svelte";
       .append("path")
       .attr("d", arcGenerator)
       .attr("fill", (_, i) => segmentColors[i]);
+
+      svg.append("defs").append("clipPath")
+   .attr("id", "clip-circle")
+   .append("circle")
+   .attr("cx", size / 26) // x-coordinate of the center of the circle
+   .attr("cy", size / 26) // y-coordinate of the center of the circle
+   .attr("r", size / 26); // radius of the circle
+
+    // Render images instead of text
     svg
       .selectAll("mySlices")
       .data(dataWithArc)
       .enter()
-      .append("text")
-      .text((_, i) => items[i])
-      .attr("transform", (d) => `translate(${arcGenerator.centroid(d)})`)
+      .append("image")
+      .attr("xlink:href", (_, i) => items[i]) // Set the image path dynamically
+      .attr("transform", (d) => `translate(${arcGenerator.centroid(d)[0] - (size/13/2)}, ${arcGenerator.centroid(d)[1] - (size/13/2)})`)
       .style("rotate", (d) => '${d}deg')
-      .attr("fill", "white");
+      .style("clip-path", "url(#clip-circle)") // Apply the clip path
+      .attr("width", size/13) // Set the width of the image
+      .attr("height", size/13); // Set the height of the image
+};
 
-  };
 
   afterUpdate(svgRender);
   async function FetchData() {
-    axios.defaults.withCredentials = true;
-    const response = await fetch('http://localhost:3000'
-    , {
-      headers: {
-        "Content-Type": "application/json",
-        "Cache-Control": "no-cache",
-      },
-    });
-  const json = await response.json();
+    // const response = await fetch('http://localhost:3000'
+    // , {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Cache-Control": "no-cache",
+    //   },
+    // });
+
+  const json = myJson;
 
   items = [... new Set(json['issues'].map((e) => {
     if (e['fields']['assignee'] != null) {
-      return e['fields']['assignee']['displayName'].split(' ')[0];
+      if (e['fields']['assignee']['avatarUrls']['24x24'] == undefined) {
+        console.log(e['fields']['assignee']['avatarUrls']);
+      };
+      return e['fields']['assignee']['avatarUrls']['24x24'] ;
     }
-  }))].filter(function(item) {
-    return item !== undefined;
-});
+  }))];
+
+itemsNames = [... new Set(json['issues'].map((e) => {
+    if (e['fields']['assignee'] != null) {
+      return e['fields']['assignee']['displayName'];
+    }
+  }))];
 
   return json;
 
@@ -170,7 +198,6 @@ import { onMount, beforeUpdate, afterUpdate } from "svelte";
   });
 
 
-  console.log(json[0]);
 
 
 
@@ -237,10 +264,6 @@ setWord('Daily Roulette').then(setTimeout(()=>{
 }, 1000);
   });
 
-  export const generateRandomColor = () => {
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    return `#${randomColor}`;
-  }
 
   $: if (auteur) {
     console.log(auteur);
@@ -289,24 +312,60 @@ setWord('Daily Roulette').then(setTimeout(()=>{
             <button class="spin-button" on:click={spinWheel} style="color: white"> </button>
             {/if}
           </div>
+          
+          {#if showSettingsPopup}
+          <div class="winner-popup">
+            <div class="popup-content flex items-center justify-center flex-col">
+              <div class="flex flex-col gap-3 ">
+                <div class="flex flex-nowrap flex-col border border-black  ">
+                  {#each itemsNames as value}
+                  <div class="flex-1 flex justify-start gap-2">
+                  <input type="checkbox" id={value} name={value} value={value} checked={true} class="w-5" on:change={(e) => {
+                    if (e.target.checked) {
+                      items.push(items[itemsNames.indexOf(value)]);
+                      itemsNames.push(value);
+                    }else {
+                      items.splice(itemsNames.indexOf(value), 1);
+                      itemsNames.splice(itemsNames.indexOf(value), 1);
+                    }
+                  }}/>
+                  <label class="font-bold" for={value}>{value}</label>
+                </div>
+                  {/each}
 
+                </div>
+                <button on:click={() => {
+                  closeSettings();
+                }} class="bg-black text-white text-2xl flex-1 mt-4 flex items-center gap-2 justify-center" style="border: 1px solid black"><Fa icon={faExplosion} /> Sauvegarder</button>
+                </div>
+                </div>
+                </div>
+                {/if}
           {#if showLoadingPopup}
           <div class="winner-popup">
             <div class="popup-content flex items-center justify-center flex-col">
-              <div class="flex flex-col gap-3">
-              <div class="font-bold inline-flex bg-black px-48 py-2 text-white" style="font-size:100px;">Daily</div>
+              <div class="flex flex-col gap-3 ">
+              <div class="font-bold inline-flex border border-black px-48 py-2 text-black" style="font-size:100px;">Daily</div>
+            <div class="flex gap-3 w-full">
+
               <button on:click={() => {
                 closeWinnerPopup();
-              }} class="bg-white text-black text-2xl" style="border: 1px solid black">Commencer le daily?</button>
+              }} class="bg-white text-black text-2xl flex-1 mt-4 flex items-center gap-2 justify-center" style="border: 1px solid black"><Fa icon={faCheck} />Commencer le daily?</button>
+
+               <button on:click={() => {
+                openSettings();
+              }} class="bg-black text-white text-2xl flex-1 mt-4 flex items-center gap-2 justify-center" style="border: 1px solid black"><Fa icon={faCog} /> Des absents?</button>
+          </div>
             </div>
           </div>
           </div>
           {/if}
           {#if showWinnerPopup}
           <div class="winner-popup">
-            <div class="popup-content flex items-center justify-center flex-col">
-              <div class="">
-              <p class="font-bold" style="font-size:100px;">{winningItem}</p>
+            <div class="popup-content flex flex-col">
+              <div class="w-full">
+                <img src={items[itemsNames.indexOf(winningItem)]} alt="avatar" width="50"/>
+              <p class="font-bold whitespace-nowrap" style="font-size:100px;">{winningItem}</p>
               {#if time > 30}
               <div class="bg-black text-white"><p class="text-white" style="font-size:70px;">{time}</p></div>
               {:else if time > 10 && time < 31}
@@ -315,21 +374,21 @@ setWord('Daily Roulette').then(setTimeout(()=>{
               <div class="bg-black text-white"><p class="text-red-700" style="font-size:70px;">{time}</p></div>
               {/if}
 
-              <div class="overflow-scroll max-h-80 grid-cols-2 gap-2 grid">
+              <div class="overflow-scroll grid-cols-4 gap-2 grid">
               {#each filteredList as key,value}
 
                 <div class="flex flex-col p-4 rounded-xl overflow-hidden h-fit text-white border border-black" style="box-shadow:  5px 5px 10px #7b7b7b,
                 -5px -5px 10px #ffffff; ">
-                {#if jsonTest[value]['key'].startsWith('TMA')}
-                <span class="bg-violet-400 text-center -mt-[16px] text-white -mx-[16px]">{jsonTest[value]['key'] ?? 'Pas de Nombre'}</span>
+                {#if filteredList[value]['key'].startsWith('TMA')}
+                <span class="bg-violet-400 text-center -mt-[16px] text-white -mx-[16px]">{filteredList[value]['key'] ?? 'Pas de Nombre'}</span>
                 {:else}
-                <span class="bg-blue-400 text-center -mt-[16px] text-white -mx-[16px]">{jsonTest[value]['key'] ?? 'Pas de Nombre'}</span>
+                <span class="bg-blue-400 text-center -mt-[16px] text-white -mx-[16px]">{filteredList[value]['key'] ?? 'Pas de Nombre'}</span>
                 {/if}
-                 <span class="text-black">{jsonTest[value]['fields']['summary'] ?? 'Pas de description'}</span> </div>
+                 <span class="text-black">{filteredList[value]['fields']['summary'] ?? 'Pas de description'}</span> </div>
                 {/each}
               </div>
-              <button class="bg-black" on:click={pause}>Pause</button>
-              <button class="bg-black" on:click={closeWinnerPopup}>Close</button>
+              <button class="bg-black mt-4" on:click={pause}>Pause</button>
+              <button class="bg-black mt-4" on:click={closeWinnerPopup}>Close</button>
             </div>
           </div>
           </div>
@@ -385,8 +444,8 @@ setWord('Daily Roulette').then(setTimeout(()=>{
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
             width: 100%;
-            height: 100%;
             align-items: center;
+            height: 100%;
           }
 
           h2 {
