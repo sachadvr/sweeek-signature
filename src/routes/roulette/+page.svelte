@@ -3,7 +3,6 @@
 
 import { onMount, beforeUpdate, afterUpdate } from "svelte";
   import { select, arc, pie } from "d3";
-  import myJson from "../../lib/test.json";
   import { faCheck, faCog, faExplosion } from "@fortawesome/free-solid-svg-icons";
   import Fa from "svelte-fa/src/fa.svelte";
 
