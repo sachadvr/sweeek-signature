@@ -203,7 +203,7 @@
 
               <td style="padding: 0 10px 0 0; line-height: 16px;">
                 <table class="label" style="text-decoration: none; color: black; font-size: .7em; min-width: 150px;">
-                  <tr>
+                  <tr style="line-height: 16px;">
                     <td width="16" height="16" style="width:16px;height:16px;">
                       <img width="16" height="16" style="width:16px;height:16px;" src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/mail.png" alt="Mail" />
                     </td>
