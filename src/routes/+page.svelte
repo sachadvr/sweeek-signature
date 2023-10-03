@@ -189,7 +189,7 @@
                       {lastName}
                     </td>
                   </tr>
-                  
+
                 </table>
 
                 <table class="label" style="font-weight: 500; font-size: 1em;white-space: nowrap;">
@@ -200,7 +200,7 @@
               </td>
             </tr>
             <tr style="padding-bottom: 1rem;  ">
-              
+
               <td style="padding: 0 10px 0 0; line-height: 16px;">
                 <table class="label" style="text-decoration: none; color: black; font-size: .7em; min-width: 150px;">
                   <tr>
@@ -254,8 +254,8 @@
                 </table>
               </td>
               <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px; margin:0px 0px 0px 0px;">
-                
-                  
+
+
                 {#if logoUrl}
                 <img
                     width="200"
@@ -267,11 +267,10 @@
                 <table>
                   <tr><td><img
                     width="200"
-                    src="https://alicegarden.atlassian.net/s/-3o5b4z/b/5/e932d65b444872da6155b2fc89562bb8/_/jira-logo-scaled.png"
+                    src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/sweeek.png"
                     alt="Placeholder Logo"
                     class="logo"
                   /></td></tr>
-                 <tr><td style="padding-left: 35px; font-size: .8rem;">Have a sweet week.</td></tr>
                 </table>
                 {/if}
               </td>
@@ -289,7 +288,7 @@
               <td style="background:none; border:solid 12px black; border-width:12px 0 0 0; height:12px; margin:0px 0px 0px 0px;">
               </td>
             </tr>
-              
+
             {#if false == true}
             <tr>
               <td
@@ -361,7 +360,7 @@
       min-width: 0!important;
       white-space: unset!important;
     }
-    
+
     @keyframes slidein {
       0% {
         transform: translateY(-100%);
