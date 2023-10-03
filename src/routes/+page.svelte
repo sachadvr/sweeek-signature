@@ -264,7 +264,8 @@
                     class="logo"
                   />
                 {:else}
-                <table>
+                <table style="margin-left: auto;
+                margin-right: auto;">
                   <tr><td><img
                     width="200"
                     style="width:200px;"
