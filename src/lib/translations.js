@@ -54,7 +54,7 @@ const translations = {
       address: '270 Avenue de l\'Espace,',
       address1: '59118 Wambrechies',
       examplePreviewEmail: 'Voici un exemple d\'email :',
-      currentEmail: 'sduvivier@sweeek.fr',
+      currentEmail: 'sduvivier@sweeek.com',
       signatureInstructions: `Pour ajouter ou modifier votre signature sur Gmail, suivez ces étapes simples :
 
       1. Cliquez sur l'icône d'engrenage en haut à droite de votre boîte de réception Gmail. {gmail}

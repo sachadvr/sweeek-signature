@@ -8,8 +8,8 @@
 
 <head>
     <script src="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js"></script>
-    <meta charset="UTF-8">
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fireworks Popup</title>
     <style>
@@ -114,21 +114,6 @@
             fireworks.stop();
         }
         document.querySelector('.modal').classList.add('active');
-    //     document.querySelector('.popup-content h1').addEventListener('animationend', function() {
-    //         let word = "Alice's Garden";
-    //         let timer = word.length;
-    // let interval = setInterval(() => {
-    //     if (timer == 0) {
-    //         clearInterval(interval);
-    //         document.querySelector('.modal').classList.add('animation');
-    //         document.querySelector('.popup-content h1').innerHTML = "sweeek.";
-    //         fireworks.start()
-    //     } else {
-    //         let trimmedWord = word.slice(0, timer);
-    //         document.querySelector('.popup-content h1').innerHTML = trimmedWord;
-    //         timer--;
-    //     }
-    
             var timestamp = new Date().getTime();
             document.querySelector('img').src = 'https://i.imgur.com/YtSH5ba.gif?' + timestamp;
 
