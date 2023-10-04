@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import Form from "./Form.svelte";
-  import { Fr, Es, Gb, Nl, De, It, Be, Pt } from "svelte-flag-icons";
   import Fa from "svelte-fa/src/fa.svelte";
   import { faCheck } from "@fortawesome/free-solid-svg-icons";
   import { translations } from "../lib/translations";
@@ -16,14 +15,8 @@
   let logoUrl;
   let logoInput;
   let logoFile = null;
-  let showBelgiumFlags = false;
   let banner = "";
 
-  function changeLanguage(language) {
-    currentLanguage = language;
-    jobTitle = translations[currentLanguage].currentJob;
-    email = translations[currentLanguage].currentEmail;
-  }
 
   const handleLogoUpload = (event) => {
     const file = event.target.files[0];
@@ -91,68 +84,7 @@
       {banner}
     </div>
   {/if}
-  <div class="mt-10 flex gap-3 mx-6">
-    <Fr
-      on:click={() => {
-        changeLanguage("fr");
-      }}
-    />
-    <Es
-      on:click={() => {
-        changeLanguage("es");
-      }}
-    />
-    <Gb
-      on:click={() => {
-        changeLanguage("en");
-      }}
-    />
-    <It
-      on:click={() => {
-        changeLanguage("it");
-      }}
-    />
-    <Pt
-      on:click={() => {
-        changeLanguage("pt");
-      }}
-    />
-    <De
-      on:click={() => {
-        changeLanguage("de");
-      }}
-    />
-    <Nl
-      on:click={() => {
-        changeLanguage("nl");
-      }}
-    />
-    <div class="relative">
-      <Be
-        on:click={() => {
-          showBelgiumFlags = !showBelgiumFlags;
-        }}
-      />
-      {#if showBelgiumFlags}
-        <div
-          class="absolute top-0 left-0 bg-white border translate-y-[50%] border-black p-2 flex gap-2 mt-2"
-        >
-          <Fr
-            on:click={() => {
-              changeLanguage("frbe");
-              showBelgiumFlags = !showBelgiumFlags;
-            }}
-          />
-          <Nl
-            on:click={() => {
-              changeLanguage("nlbe");
-              showBelgiumFlags = !showBelgiumFlags;
-            }}
-          />
-        </div>
-      {/if}
-    </div>
-  </div>
+
   <h1
     class="mt-8 text-6xl max-md:text-5xl p-4 font-bold"
     style="line-height:80px;"
@@ -176,13 +108,14 @@
             style="background-color: white;
   color: black;
   width: 100%;
-  min-width: 100%;
-  font-family: 'Trebuchet MS', sans-serif;
+  max-width: 800px;
+  padding-top: 2rem;
+  font-family:  'Satoshi', 'Trebuchet MS', sans-serif;
   "
           >
             <tr style="display:block; padding-bottom: 1rem;">
               <td style="padding: 0 1 rem">
-                <table class="label" style="font-weight: 700; font-size: 2em; line-height: 32px; font-family: sans-serif; white-space: nowrap;">
+                <table class="label" style="font-weight: 700; font-size: 2em; line-height: 32px; white-space: nowrap;">
                   <tr>
                     <td>
                       {firstName}
@@ -229,6 +162,7 @@
                 >
                     </td>
                   </tr>
+                  {#if phone }
                     <tr style="line-height: 16px;">
                       <td width="16" height="16" style="width:16px;height:16px;">
                         <img width="16" height="16" style="width:16px;height:16px;" src="https://walibuy-image.s3.eu-west-1.amazonaws.com/icons/phone.png" alt="Phone" />
@@ -237,19 +171,20 @@
                         {phone}
                       </td>
                     </tr>
+                    {/if}
                     </table>
               <td style="padding: 0 20px 0 20px; background:none; border-left:solid 2px black; border-left-width:2px 0 0 0; height:2px;">
                 <table style="font-size: .8em; font-weight: 100; min-width: 130px; text-align: center; margin: auto;">
                 <tr><td><a
                   style="text-decoration:none;color:black;"
                   href="#"
-                  >270 Avenue de l'Espace,</a
+                  >{translations[currentLanguage].address}</a
                 ></td></tr>
                 <tr><td>
                   <a
                   style="text-decoration:none;color:black;"
                   href="#"
-                  >59118 Wambrechies</a
+                  >{translations[currentLanguage].address1}</a
                 ></td></tr>
                 </table>
               </td>
