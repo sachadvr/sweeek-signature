@@ -216,8 +216,14 @@
       isSpinning = false;
       getSelectedPrice();
     });
-    const wheel = document.querySelector('.wheel').addEventListener('click', (e) => {
+    const wheel = document.querySelector('.wheel');
+    wheel.addEventListener('click', (e) => {
       spinWheel(e);
+    });
+    document.querySelector('body').addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        spinWheel(e);
+      }
     });
     });
 
