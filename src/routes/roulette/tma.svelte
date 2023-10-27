@@ -14,7 +14,7 @@
 </script>
 
 <div class="winner-popup !block">
-  <div class="popup-content flex flex-col bg-white !h-[unset]">
+  <div class="popup-content flex flex-col bg-white !h-[unset] min-h-[100vh]">
     <div class="w-full">
       <img src={dictionary[winningItem]} alt="avatar" width="50" />
       <p class="font-bold whitespace-nowrap" style="font-size:100px;">
