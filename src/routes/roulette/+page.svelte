@@ -70,7 +70,8 @@
       }
     };
     const getSelectedPrice = () => {
-      if (!isSpinning) {
+
+
         const currentAngle = (360 - (spinDeg % 360)) % 360;
         const anglePerSegment = 360 / Object.keys(dictionary).length;
         const selectedIndex = Math.floor(currentAngle / anglePerSegment);
@@ -82,14 +83,17 @@
         console.log(filteredList);
         if (Object.keys(dictionary).length > 0) {
           setTimeout(() => {
+          isSpinning = false;
+
             showWinnerPopup = true;
             startTimer();
           }, 1000);
         }
-      }
     };
 
     const spinWheel = (e) => {
+      if (isSpinning) return;
+      if (showSettingsPopup || showWinnerPopup || showLoadingPopup || showTMAPopup) return;
     (e != null) ? e.stopPropagation() : console.log('Starting Daily');
     if (!isSpinning && Object.keys(dictionary).length > 0) {
       isSpinning = true;
@@ -213,7 +217,6 @@
     console.log(dictionary);
 
     const doc = document.querySelector('.wheel').addEventListener('transitionend', () => {
-      isSpinning = false;
       getSelectedPrice();
     });
     const wheel = document.querySelector('.wheel');
@@ -271,28 +274,6 @@
 
     await writingPromise;
   };
-
-
-
-    $: if (currentStatus === statuses.SHOWBUTTON) {
-      setTimeout(() => {
-        document.querySelector('#scrollToRoulette').scrollIntoView({ behavior: 'smooth' });
-      },1000);
-    }
-
-    onMount(() => {
-      setTimeout(() => {
-
-  setWord('Daily Roulette').then(setTimeout(()=>{
-    word = "";
-    setWord("by Sacha").then(() => {
-      setTimeout(()=> {
-        setStatus(statuses.SHOWBUTTON);
-      },1500);
-    });
-  }, 1500));
-  }, 1000);
-    });
 
 
   </script>
