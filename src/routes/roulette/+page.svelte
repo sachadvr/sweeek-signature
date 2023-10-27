@@ -44,7 +44,7 @@
       showLoadingPopup = false;
       clearInterval(currentTimer);
       delete dictionary[winningItem];
-
+      dictionary = {...dictionary};
       time = 60;
     };
 
@@ -80,7 +80,6 @@
         filteredList = jsonTest.filter((e) => {
           return e.fields.assignee?.displayName == winningItem;
         });
-        console.log(filteredList);
         if (Object.keys(dictionary).length > 0) {
           setTimeout(() => {
           isSpinning = false;
@@ -196,7 +195,6 @@
         const json = await FetchData();
         jsonTest = json;
 
-    console.log(json);
 
    let items = [... new Set(json.map((e) => {
       if (e['fields']['assignee'] != null) {
@@ -214,7 +212,6 @@
       dictionary[itemsNames[i]] = items[i];
     }
     copydictionary = {...dictionary};
-    console.log(dictionary);
 
     const doc = document.querySelector('.wheel').addEventListener('transitionend', () => {
       getSelectedPrice();
@@ -275,7 +272,7 @@
     await writingPromise;
   };
 
-
+  $: console.log(Object.keys(dictionary).length);
   </script>
 
 
@@ -297,8 +294,18 @@
             </svg>
               <div style="rotate: {spinDeg}deg" class="wheel" />
             </div>
+            {#if Object.keys(dictionary).length < 1}
 
-
+            <div class="winner-popup z-[9999]">
+              <div class="popup-content flex items-center justify-center flex-col">
+                <div class="flex flex-col gap-3 ">
+                  <div class="flex flex-nowrap flex-col border border-black  ">
+                    FIN
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+            {/if}
             {#if showSettingsPopup}
             <div class="winner-popup">
               <div class="popup-content flex items-center justify-center flex-col">
@@ -306,16 +313,15 @@
                   <div class="flex flex-nowrap flex-col border border-black  ">
                     {#each Object.keys(dictionary) as value}
                     <div class="flex-1 flex justify-start gap-2">
-                    <input type="checkbox" id={value} name={value} value={value} checked={true} class="w-5" on:change={(e) => {
-                      const avatar = dictionary[value];
-                      window.dictionary = dictionary;
+                    <input type="checkbox" id={value} name={value} value={value} checked={true} class="w-5"
+                    on:change={(e) => {
                       if (e.target.checked) {
-                        console.log(copydictionary);
                         dictionary[value] = copydictionary[value];
                       }else {
                         delete dictionary[value];
                       }
-                      console.log(dictionary);
+                      dictionary = { ...dictionary };
+
                     }}/>
                     <label class="font-bold" for={value}>{value}</label>
                   </div>
