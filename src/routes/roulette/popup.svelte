@@ -23,7 +23,7 @@
         margin: 5px;
     }
 </style>
-<div class="winner-popup !z-30 !h-[auto]">
+<div class="winner-popup !z-30 !h-[100%]">
     <div class="popup-content flex items-center justify-center flex-col !bg-[transparent] max-w-[1000px]" style="height: unset!important; box-shadow: unset;" >
       <div class="flex flex-col gap-3 relative bg-[#1D2125] text-white">
         <div class="absolute top-3 left-5 text-sm flex gap-2 z-[10]">
