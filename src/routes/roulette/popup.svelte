@@ -23,7 +23,7 @@
         margin: 5px;
     }
 </style>
-<div class="winner-popup !z-30 !h-[100%]">
+<div class="winner-popup !z-30 !h-[100%] !items-start">
     <div class="popup-content flex items-center justify-center flex-col !bg-[transparent] max-w-[1000px]" style="height: unset!important; box-shadow: unset;" >
       <div class="flex flex-col gap-3 relative bg-[#1D2125] text-white">
         <div class="absolute top-3 left-5 text-sm flex gap-2 z-[10]">
@@ -46,7 +46,7 @@
                 </span>
             </div>
 
-            <div class="mt-5 leading-5 p-6">
+            <div class="mt-5 leading-5 p-6 overflow-auto">
                 {#if currentDescription}{@html marked.parse(j2m.to_markdown(currentDescription)).replace(/\|([^|]+)\|/g, '<div>$1</div>')}{/if}
             </div>
 
