@@ -35,7 +35,7 @@
     }
 
     let colors = [];
-    let size = 500
+    let size = 700
 
     let selectedItem = null;
     let winningItem = null;
@@ -216,6 +216,9 @@
       isSpinning = false;
       getSelectedPrice();
     });
+    const wheel = document.querySelector('.wheel').addEventListener('click', (e) => {
+      spinWheel(e);
+    });
     });
 
 
@@ -290,24 +293,13 @@
 
 
 
-  <div class="flex items-center justify-center h-[100vh] w-full flex-col relative">
-    <div style='font-family: "Source Code Pro","monaco","PT Mono","Courier",monospace; font-size: 40px;'>
-
-      {#if totalstr.length > 0}
-      {totalstr}
-      {:else}
-      <span class="animate-spin"><div>_</div></span>
-      {/if}
-    </div>
-      <img class="absolute bottom-4 left-4 w-40" alt="" src="https://alicegarden.atlassian.net/s/-3o5b4z/b/5/e932d65b444872da6155b2fc89562bb8/_/jira-logo-scaled.png">
-  </div>
-
       <div class="w-full h-[100vh] bg-white relative flex items-center justify-center" id="scrollToRoulette">
-            <div class="wheel-container">
+
+        <div class="wheel-container">
               <svg
               class="pointer"
-              width=50
-              height=50
+              width=100
+              height=100
               viewBox="0 0 255 254"
               fill=white
               xmlns="http://www.w3.org/2000/svg"
@@ -317,7 +309,6 @@
               />
             </svg>
               <div style="rotate: {spinDeg}deg" class="wheel" />
-              <button class="spin-button" on:click={spinWheel} style="color: white"> </button>
             </div>
 
 
@@ -354,14 +345,17 @@
             {#if showLoadingPopup}
             <div class="winner-popup">
               <div class="popup-content flex items-center justify-center flex-col">
-                <div class="flex flex-col gap-3 ">
-                <div class="font-bold inline-flex border border-black px-48 py-2 text-black" style="font-size:100px;">Daily</div>
-              <div class="flex gap-3 w-full">
+                <div class="flex flex-col gap-3 relative">
+                <div class="flex flex-col items-center" style="font-size:100px; h-[180px] w-[300px]">
+        <img class="-mb-5 z-[11] w-full max-w-[500px]" alt="" src="https://alicegarden.atlassian.net/s/-3o5b4z/b/5/e932d65b444872da6155b2fc89562bb8/_/jira-logo-scaled.png">
+        Daily
+                </div>
+              <div class="flex gap-3 w-full absolute -bottom-16">
 
                 {#if jsonTest.length > 0}
                 <button on:click={() => {
                   closeWinnerPopup();
-                }} class="bg-white text-black text-2xl flex-1 mt-4 flex items-center gap-2 justify-center" style="border: 1px solid black"><Fa icon={faCheck} />Commencer le daily?</button>
+                }} class="bg-white text-black text-2xl flex-1 mt-4 flex items-center gap-2 justify-center" style="border: 1px solid black"><Fa icon={faCheck} />C'est parti!</button>
                  <button on:click={() => {
                    openSettings();
                   }} class="bg-black text-white text-2xl flex-1 mt-4 flex items-center gap-2 justify-center" style="border: 1px solid black"><Fa icon={faCog} /> Des absents?</button>
