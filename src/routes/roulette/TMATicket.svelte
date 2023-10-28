@@ -11,7 +11,7 @@
 
   </script>
 
-<div class="w-1/3 border-2" class:border-blue-300={status === "En cours"} class:border-violet-300={status === "Relecture"} class:border-green-300={status === "En préprod"}>
+<div class="flex-1 border-2" class:border-blue-300={status === "En cours"} class:border-violet-300={status === "Relecture"} class:border-green-300={status === "En préprod"}>
     <div class="w-full" class:bg-blue-300={status === "En cours"} class:bg-violet-300={status === "Relecture"} class:bg-green-300={status === "En préprod"}>{status}</div>
     <div class="overflow-auto flex flex-col gap-3 p-4">
       {#each filteredList.filter(e=>e.fields.status === myStatus) as value}

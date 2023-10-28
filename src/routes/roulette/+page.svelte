@@ -4,7 +4,7 @@
 
   import { onMount, beforeUpdate, afterUpdate } from "svelte";
     import { select, arc, pie } from "d3";
-    import { faCheck, faCog, faExplosion } from "@fortawesome/free-solid-svg-icons";
+    import { faArrowRight, faCheck, faCog, faExplosion } from "@fortawesome/free-solid-svg-icons";
     import Fa from "svelte-fa/src/fa.svelte";
     import Popup from "./popup.svelte";
   import Tma from "./tma.svelte";
@@ -14,6 +14,7 @@
     let showTMAPopup = false;
     let showLoadingPopup = true;
     let showSettingsPopup = false;
+    let showRecapPopup = false;
     let isSpinning = false;
     let currentTimer;
     let filteredList = [];
@@ -26,6 +27,9 @@
 
 
     const startTimer = () => {
+      if (currentTimer) {
+        clearInterval(currentTimer);
+      }
       currentTimer = setInterval(() => {
         time --;
         if (time < 1) {
@@ -40,6 +44,9 @@
     let selectedItem = null;
     let winningItem = null;
     const closeWinnerPopup = () => {
+      if (currentTimer) {
+        clearInterval(currentTimer);
+      }
       showWinnerPopup = false;
       showLoadingPopup = false;
       clearInterval(currentTimer);
@@ -82,17 +89,18 @@
         });
         if (Object.keys(dictionary).length > 0) {
           setTimeout(() => {
-          isSpinning = false;
 
             showWinnerPopup = true;
             startTimer();
+            isSpinning = false;
           }, 1000);
         }
     };
 
     const spinWheel = (e) => {
       if (isSpinning) return;
-      if (showSettingsPopup || showWinnerPopup || showLoadingPopup || showTMAPopup) return;
+      if (showSettingsPopup || showWinnerPopup || showLoadingPopup || showTMAPopup || showRecapPopup) return;
+      console.log(e);
     (e != null) ? e.stopPropagation() : console.log('Starting Daily');
     if (!isSpinning && Object.keys(dictionary).length > 0) {
       isSpinning = true;
@@ -191,6 +199,13 @@
 
     let jsonTest = [];
     onMount(async () => {
+      size = window.innerWidth > 600 ? 600 : window.innerWidth;
+      function handleViewportChange() {
+        size = window.innerWidth > 600 ? 600 : window.innerWidth;
+        svgRender();
+      }
+
+window.addEventListener('resize', handleViewportChange);
 
         const json = await FetchData();
         jsonTest = json;
@@ -211,6 +226,7 @@
     for (var i = 0; i < items.length; i++) {
       dictionary[itemsNames[i]] = items[i];
     }
+    delete dictionary[null];
     copydictionary = {...dictionary};
 
     const doc = document.querySelector('.wheel').addEventListener('transitionend', () => {
@@ -251,28 +267,24 @@
     function closeTicket() {
       showTMAPopup = false;
     }
+    let checkedValues = [];
 
-    const getWriting = async () => {
-    currentStatus = statuses.WORKING;
-    let number = 0;
-
-    const writingPromise = new Promise((resolve) => {
-      intervalId = setInterval(() => {
-        if (number >= word.length) {
-          clearInterval(intervalId);
-          setStatus(statuses.FINISHED);
-          resolve();
-          return;
-        }
-        totalstr += word[number];
-        number++;
-      }, 50);
-    });
-
-    await writingPromise;
-  };
 
   $: console.log(Object.keys(dictionary).length);
+
+$: {
+  if (Object.keys(dictionary).length < 1) {
+  showRecapPopup = true;
+  }
+}
+$: {
+    checkedValues = Object.keys(copydictionary).map(value => dictionary[value] != null);
+  }
+afterUpdate(() => {
+    if (Object.keys(dictionary).length >= 1) {
+      showRecapPopup = false;
+    }
+  });
   </script>
 
 
@@ -282,8 +294,9 @@
         <div class="wheel-container">
               <svg
               class="pointer"
-              width=100
-              height=100
+              style={"translate: -50% -" + (size/2.2) + "px"}
+              width={size / 10}
+              height={size / 10}
               viewBox="0 0 255 254"
               fill=white
               xmlns="http://www.w3.org/2000/svg"
@@ -294,13 +307,30 @@
             </svg>
               <div style="rotate: {spinDeg}deg" class="wheel" />
             </div>
-            {#if Object.keys(dictionary).length < 1}
+            {#if showRecapPopup}
 
-            <div class="winner-popup z-[9999]">
-              <div class="popup-content flex items-center justify-center flex-col">
+            <div class="winner-popup z-[9999] !items-start">
+              <div class="popup-content flex-col !block min-h-[100vh]  !items-start !h-[unset]">
                 <div class="flex flex-col gap-3 ">
-                  <div class="flex flex-nowrap flex-col border border-black  ">
-                    FIN
+                  <div class="flex flex-wrap border border-black justify-center gap-[20px] ">
+                    {#each jsonTest.filter(e=>e.fields.status === 'En cours de relecture') as value}
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-[180px]">
+          <div>
+            <img src={value["fields"]["assignee"]["avatar"]} alt="avatar" width="50" />
+            <h5 class="w-fit mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{value["key"]}</h5>
+          </div>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-start">{value["fields"]["summary"]}</p>
+          <a
+            href="#"
+            on:click={() => {
+              openTicket(value);
+            }}
+            class="flex items-center gap-2 px-3 py-2 text-sm font-medium w-fit text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Voir plus <Fa icon={faArrowRight} />
+          </a>
+        </div>
+      {/each}
                     </div>
                     </div>
                     </div>
@@ -311,9 +341,12 @@
               <div class="popup-content flex items-center justify-center flex-col">
                 <div class="flex flex-col gap-3 ">
                   <div class="flex flex-nowrap flex-col border border-black  ">
-                    {#each Object.keys(dictionary) as value}
+                    {#each Object.keys(copydictionary) as value, index}
                     <div class="flex-1 flex justify-start gap-2">
-                    <input type="checkbox" id={value} name={value} value={value} checked={true} class="w-5"
+                    <input type="checkbox" id={value} name={value}
+                    checked={checkedValues[index]}
+
+                    class="w-5"
                     on:change={(e) => {
                       if (e.target.checked) {
                         dictionary[value] = copydictionary[value];
@@ -337,7 +370,7 @@
                   {/if}
             {#if showLoadingPopup}
             <div class="winner-popup">
-              <div class="popup-content flex items-center justify-center flex-col">
+              <div class="popup-content flex items-center justify-center flex-col z-[99999]">
                 <div class="flex flex-col gap-3 relative">
                 <div class="flex flex-col items-center" style="font-size:100px; h-[180px] w-[300px]">
         <img class="-mb-5 z-[11] w-full max-w-[500px]" alt="" src="https://alicegarden.atlassian.net/s/-3o5b4z/b/5/e932d65b444872da6155b2fc89562bb8/_/jira-logo-scaled.png">

@@ -17,9 +17,10 @@
   <div class="popup-content flex flex-col bg-white !h-[unset] min-h-[100vh]">
     <div class="w-full">
       <img src={dictionary[winningItem]} alt="avatar" width="50" />
-      <p class="font-bold whitespace-nowrap" style="font-size:100px;">
+      <div class="font-bold whitespace-nowrap
+      " style="  font-size: clamp(2rem, -0.875rem + 8.333vw, 100px);">
         {winningItem}
-      </p>
+      </div>
       <div class="mx-auto max-w-xs">
         {#if time > 30}
           <div class="bg-black text-white">
@@ -35,7 +36,7 @@
           </div>
         {/if}
       </div>
-      <div class="flex gap-3">
+      <div class="flex gap-3 max-md:grid">
         <TMATicket status={"En cours"} filteredList={filteredList} openTicket={openTicket} />
         <TMATicket status={"Relecture"} filteredList={filteredList} openTicket={openTicket} />
         <TMATicket status={"En préprod"} filteredList={filteredList} openTicket={openTicket} />

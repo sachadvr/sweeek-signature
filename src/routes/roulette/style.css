@@ -1,4 +1,7 @@
-            .wheel-container {
+*{
+  font-size: clamp(.7em, 1.5vw, 1em);
+}
+.wheel-container {
               position: relative;
               display: flex;
               justify-content: center;
@@ -77,7 +80,6 @@
           .pointer {
               position: absolute;
               left: 50%;
-              translate: -50% -320px;
               rotate: 315deg;
               z-index: 2;
             }
