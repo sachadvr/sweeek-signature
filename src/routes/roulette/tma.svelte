@@ -36,14 +36,14 @@
           </div>
         {/if}
       </div>
+      <button class="bg-black mb-4" on:click={pause}>Pause</button>
+      <button class="bg-black mb-4" on:click={closeWinnerPopup}>Close</button>
       <div class="flex gap-3 max-md:grid">
         <TMATicket status={"En cours"} filteredList={filteredList} openTicket={openTicket} />
         <TMATicket status={"Relecture"} filteredList={filteredList} openTicket={openTicket} />
         <TMATicket status={"En préprod"} filteredList={filteredList} openTicket={openTicket} />
 
       </div>
-      <button class="bg-black mt-4" on:click={pause}>Pause</button>
-      <button class="bg-black mt-4" on:click={closeWinnerPopup}>Close</button>
     </div>
   </div>
 </div>
