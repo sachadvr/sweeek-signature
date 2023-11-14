@@ -42,7 +42,6 @@
         <TMATicket status={"En cours"} filteredList={filteredList} openTicket={openTicket} />
         <TMATicket status={"Relecture"} filteredList={filteredList} openTicket={openTicket} />
         <TMATicket status={"En préprod"} filteredList={filteredList} openTicket={openTicket} />
-
       </div>
     </div>
   </div>
