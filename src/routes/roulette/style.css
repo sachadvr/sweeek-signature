@@ -1,6 +1,32 @@
 *{
   font-size: clamp(.7em, 1.5vw, 1em);
 }
+@keyframes slidein {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.show {
+  opacity: 0.5;
+}
+@keyframes slideout {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.banner {
+  animation: slidein 1s ease-in-out;
+}
+.slideout {
+  animation: slideout 1s ease-in-out forwards;
+}
 .wheel-container {
               position: relative;
               display: flex;

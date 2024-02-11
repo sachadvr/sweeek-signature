@@ -1,4 +1,5 @@
 <script>
+	import { supabase } from './../../lib/supabaseClient.js';
 
   import "./style.css";
 
@@ -7,7 +8,8 @@
     import { faArrowRight, faCheck, faCog, faExplosion } from "@fortawesome/free-solid-svg-icons";
     import Fa from "svelte-fa/src/fa.svelte";
     import Popup from "./popup.svelte";
-  import Tma from "./tma.svelte";
+    import Tma from "./tma.svelte";
+    let banner = "";
     let json = [];
     let spinDeg = 0;
     let showWinnerPopup = false;
@@ -18,12 +20,14 @@
     let isSpinning = false;
     let currentTimer;
     let filteredList = [];
-    let time = 60;
+    let maxTime = 60;
+    let time = maxTime;
     let dictionary = {};
     let copydictionary = {};
     let currentKey = "";
     let currentSummary = "";
     let currentDescription = "";
+    let ressenti = null;
 
 
     const startTimer = () => {
@@ -31,9 +35,18 @@
         clearInterval(currentTimer);
       }
       currentTimer = setInterval(() => {
-        time --;
+        if (ressenti == null && time == 1) {
+            banner = "Le temps est écoulé, veuillez donner votre ressenti.";
+        }
         if (time < 1) {
+          if (ressenti == null) {
+            return;
+          }
           closeWinnerPopup()
+          ressenti = null;
+
+        }else {
+            time--;
         }
       }, 1000)
     }
@@ -52,7 +65,7 @@
       clearInterval(currentTimer);
       delete dictionary[winningItem];
       dictionary = {...dictionary};
-      time = 60;
+      time = maxTime;
     };
 
     const openSettings = () => {
@@ -84,6 +97,7 @@
         const selectedIndex = Math.floor(currentAngle / anglePerSegment);
         const selectedItem = Object.keys(dictionary)[selectedIndex];
         winningItem = selectedItem;
+        ressenti = null;
         filteredList = jsonTest.filter((e) => {
           return e.fields.assignee?.displayName == winningItem;
         });
@@ -179,14 +193,14 @@
           });
 
           if (response.ok) {
-              const data = await response.json(); // Parse the JSON response
+              const data = await response.json();
               return data;
           } else {
               throw new Error('Network response was not ok: ' + response.statusText);
           }
       } catch (error) {
           console.error('Error:', error);
-          throw error; // Rethrow the error to handle it in the calling code if necessary
+          throw error;
       }
   }
 
@@ -285,12 +299,37 @@ afterUpdate(() => {
       showRecapPopup = false;
     }
   });
+
+  $: if (banner) {
+    setTimeout(() => {
+      if (
+        !String(document.querySelector(".banner").classList).includes(
+          "slideout"
+        )
+      ) {
+        document.querySelector(".banner").classList.add("slideout");
+        document
+          .querySelector(".slideout")
+          .addEventListener("animationend", () => {
+            document.querySelector(".slideout").remove("slideout");
+            banner = "";
+          });
+      }
+    }, 3000);
+  }
   </script>
 
 
 
       <div class="w-full h-[100vh] bg-white relative flex items-center justify-center" id="scrollToRoulette">
-
+        {#if banner}
+        <div
+          class="z-50 flex gap-3 banner bg-green-300 text-black p-4 font-bold text-3xl max-md:text-3xl fixed w-full top-0 transition-all animate items-center"
+        >
+          <Fa icon={faCheck} />
+          {banner}
+        </div>
+      {/if}
         <div class="wheel-container">
               <svg
               class="pointer"
@@ -395,7 +434,7 @@ afterUpdate(() => {
             <Popup currentKey={currentKey} currentSummary={currentSummary} currentDescription={currentDescription} closeTicket={closeTicket} />
             {/if}
             {#if showWinnerPopup}
-            <Tma dictionary={dictionary} closeWinnerPopup={closeWinnerPopup} openTicket={openTicket} pause={pause} time={time} winningItem={winningItem} filteredList={filteredList} showWinnerPopup={showWinnerPopup} showTMAPopup={showTMAPopup}/>
+            <Tma bind:ressenti={ressenti} bind:banner={banner} supabase={supabase} dictionary={dictionary} closeWinnerPopup={closeWinnerPopup} openTicket={openTicket} pause={pause} time={time} winningItem={winningItem} filteredList={filteredList} showWinnerPopup={showWinnerPopup} showTMAPopup={showTMAPopup}/>
             {/if}
 
 
