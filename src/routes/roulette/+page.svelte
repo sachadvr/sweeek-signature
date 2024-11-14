@@ -319,6 +319,17 @@
     $: {
         if (Object.keys(dictionary).length < 1) {
             showRecapPopup = true;
+            if (
+              !(
+                showSettingsPopup ||
+                showWinnerPopup ||
+                showLoadingPopup ||
+                showTMAPopup
+              )
+            ) {
+              banner = "Avant le prochain daily, pensez à remplir le channel Slack #nextdaily";
+            }
+
         }
     }
     $: {
