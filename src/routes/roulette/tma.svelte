@@ -46,8 +46,8 @@
 </script>
 
 <div class="winner-popup !block">
-  <div class="popup-content flex flex-col bg-white !h-[unset] min-h-[100vh]">
-    <div class="w-full">
+  <div class="popup-content relative flex flex-col bg-white !h-[unset] min-h-[100vh]">
+    <div class="w-full relative z-50">
       <img src={dictionary[winningItem]} alt="avatar" width="50" />
       <div class="flex flex-wrap">
       <div class="border flex flex-col absolute w-[22dvw] mt-3 overflow-y-auto h-fit appear-from-left">
@@ -101,6 +101,8 @@
         <TMATicket status={"En cours"} filteredList={filteredList} openTicket={openTicket} />
         <TMATicket status={"Relecture"} filteredList={filteredList} openTicket={openTicket} />
         <TMATicket status={"En préprod"} filteredList={filteredList} openTicket={openTicket} />
+        <TMATicket status={"En attente / bloqué"} filteredList={filteredList} openTicket={openTicket} />
+
       </div>
     </div>
   </div>

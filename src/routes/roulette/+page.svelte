@@ -33,6 +33,7 @@
     let currentSummary = "";
     let currentDescription = "";
     let ressenti = null;
+    let newDaily = "";
 
     const startTimer = () => {
         if (currentTimer) {
@@ -197,7 +198,7 @@
     async function FetchData() {
         try {
             const response = await fetch(
-                "https://qwcqxepot0.execute-api.eu-west-3.amazonaws.com/jira/",
+                "http://localhost:8000/jira/",
                 {
                     method: "GET",
                     headers: {
@@ -375,6 +376,13 @@
         </div>
     {/if}
     <div class="wheel-container">
+        <div class="new-daily invisible">
+            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                <div class="text-8xl font-mono font-bold bg-[#8318ec] text-[#77fbf8] p-2 uppercase">
+                   {newDaily}
+                </div>
+            </div>
+        </div>
         <svg
             class="pointer"
             style={"translate: -50% -" + size / 2.2 + "px"}
