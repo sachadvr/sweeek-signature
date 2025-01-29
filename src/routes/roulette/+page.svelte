@@ -198,7 +198,7 @@
     async function FetchData() {
         try {
             const response = await fetch(
-                "http://localhost:8000/jira/",
+                "https://qwcqxepot0.execute-api.eu-west-3.amazonaws.com/jira/",
                 {
                     method: "GET",
                     headers: {
