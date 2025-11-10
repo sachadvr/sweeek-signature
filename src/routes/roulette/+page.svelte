@@ -263,14 +263,6 @@
         for (var i = 0; i < items.length; i++) {
             dictionary[itemsNames[i]] = items[i];
         }
-        itemsNames.push("Mathilde Lesueur");
-        itemsNames.push("Eloise libre");
-        items.push("https://i.pravatar.cc/150?u=a042581f4e29026704d");
-        items.push("https://i.pravatar.cc/150?u=a042581f4e29026704f");
-        dictionary["Mathilde Leseur"] =
-            "https://i.pravatar.cc/150?u=a042581f4e29026704d";
-        dictionary["Eloise libre"] =
-            "https://i.pravatar.cc/150?u=a042581f4e29026704f";
         delete dictionary[null];
         copydictionary = { ...dictionary };
 
