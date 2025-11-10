@@ -14,6 +14,105 @@
         }
     });
 
+    // Fonction pour convertir le format ADF (Atlassian Document Format) en markdown
+    function adfToMarkdown(node) {
+        if (!node) return '';
+        
+        if (typeof node === 'string') {
+            return node;
+        }
+        
+        if (!node.type) return '';
+        
+        switch (node.type) {
+            case 'doc':
+                if (node.content && Array.isArray(node.content)) {
+                    return node.content
+                        .map(adfToMarkdown)
+                        .filter(Boolean) // Filtrer les chaînes vides
+                        .join('\n\n');
+                }
+                return '';
+                
+            case 'paragraph':
+                if (node.content && Array.isArray(node.content) && node.content.length > 0) {
+                    const text = node.content.map(adfToMarkdown).join('').trim();
+                    return text || '';
+                }
+                return '';
+                
+            case 'text':
+                let text = node.text || '';
+                // Gérer les marques (marks) comme les liens, gras, italique, etc.
+                // L'ordre est important : d'abord les marques de formatage, puis les liens
+                if (node.marks && Array.isArray(node.marks)) {
+                    // Appliquer les marques de formatage d'abord
+                    node.marks.forEach(mark => {
+                        if (mark.type === 'strong') {
+                            text = `**${text}**`;
+                        } else if (mark.type === 'em') {
+                            text = `*${text}*`;
+                        } else if (mark.type === 'code') {
+                            text = `\`${text}\``;
+                        }
+                    });
+                    // Ensuite appliquer les liens (qui doivent englober le texte formaté)
+                    node.marks.forEach(mark => {
+                        if (mark.type === 'link' && mark.attrs && mark.attrs.href) {
+                            text = `[${text}](${mark.attrs.href})`;
+                        }
+                    });
+                }
+                return text;
+                
+            case 'bulletList':
+                if (node.content && Array.isArray(node.content)) {
+                    return node.content.map(adfToMarkdown).join('\n');
+                }
+                return '';
+                
+            case 'listItem':
+                if (node.content && Array.isArray(node.content)) {
+                    const items = node.content.map(adfToMarkdown).filter(Boolean);
+                    // Si plusieurs items, les joindre avec des sauts de ligne
+                    const content = items.join('\n');
+                    // Ajouter le préfixe de liste uniquement au premier niveau
+                    return `- ${content}`;
+                }
+                return '';
+                
+            case 'inlineCard':
+                if (node.attrs && node.attrs.url) {
+                    return `[${node.attrs.url}](${node.attrs.url})`;
+                }
+                return '';
+                
+            default:
+                // Pour les types non gérés, essayer de traiter le contenu s'il existe
+                if (node.content && Array.isArray(node.content)) {
+                    return node.content.map(adfToMarkdown).join('');
+                }
+                return '';
+        }
+    }
+
+    // Fonction pour convertir la description en markdown de manière sécurisée
+    function getDescriptionMarkdown(description) {
+        if (!description) return '';
+        if (typeof description === 'string') {
+            return j2m.to_markdown(description);
+        }
+        // Si c'est un objet ADF (Atlassian Document Format)
+        if (typeof description === 'object' && description.type === 'doc') {
+            return adfToMarkdown(description);
+        }
+        return '';
+    }
+
+    $: descriptionMarkdown = getDescriptionMarkdown(currentDescription);
+    $: descriptionHtml = descriptionMarkdown 
+        ? marked.parse(descriptionMarkdown).replace(/\|([^|]+)\|/g, '<div>$1</div>')
+        : '';
 
 </script>
 <style>
@@ -47,7 +146,9 @@
             </div>
 
             <div class="mt-5 leading-5 p-6 overflow-auto">
-                {#if currentDescription}{@html marked.parse(j2m.to_markdown(currentDescription)).replace(/\|([^|]+)\|/g, '<div>$1</div>')}{/if}
+                {#if descriptionHtml}
+                    {@html descriptionHtml}
+                {/if}
             </div>
 
         </div>
